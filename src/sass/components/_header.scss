@@ -1,0 +1,42 @@
+header#site-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 70px;
+  padding: 0 15px;
+  background-color: $eqWhite;
+  border-bottom: 1px solid $eqLineGrey;
+
+  transition: all 500ms ease;
+
+  #site-branding {
+    display: flex;
+    flex: 0.5;
+    align-items: flex-end;
+    padding-bottom: 7px;
+    #mainBranding {
+      @media (max-width: 1000px) {
+        display: none;
+      }
+    }
+    #headerBrandingMobile {
+      @media (min-width: 1000px) {
+        display: none;
+      }
+    }
+  }
+}
+
+//
+// Front Page Header Styles
+//
+
+.home.transparent-header header#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}

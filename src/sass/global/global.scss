@@ -1,0 +1,10 @@
+@import './typography';
+
+body {
+  background-color: $eqWhite;
+
+  // MIN HEIGHT FOR TESTING
+  .site-main {
+    min-height: 100vh;
+  }
+}

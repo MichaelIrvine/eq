@@ -1,0 +1,320 @@
+/*!
+Theme Name: EQ
+Theme URI: http://underscores.me/
+Author: Michael Irvine
+Author URI: http://www.michaelirvinedesign.ca
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: eq
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+EQ is based on Underscores https://underscores.me/, (C) 2012-2021 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+/*--------------------------------------------------------------
+----------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+----------------------------------------------------------------
+# Mixins
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0; }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0; }
+
+/* Set core body defaults */
+body {
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; }
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none; }
+
+/* Remove list styles on ul, ol  */
+ul,
+ol {
+  list-style: none; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto; }
+
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */ }
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em; }
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important; } }
+
+a {
+  text-decoration: none; }
+
+button {
+  border: none;
+  background-color: transparent; }
+  button:hover {
+    cursor: pointer; }
+
+/*--------------------------------------------------------------
+# a11ly
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  /* Many screen reader and browser combinations announce broken words as they would appear visually. */ }
+  .screen-reader-text:focus {
+    outline: 1px dotted black;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0;
+    clip: auto !important;
+    clip-path: none;
+    color: black;
+    display: block;
+    font-weight: 400;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex='-1']:focus {
+  outline: 0; }
+
+.visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute; }
+
+/*--------------------------------------------------------------
+# Global Elements
+--------------------------------------------------------------*/
+html {
+  font-size: 16px;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal; }
+
+body {
+  background-color: #f0f0f0; }
+  body .site-main {
+    min-height: 100vh; }
+
+/*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Templates
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Plugins & Plugin Overrides
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+header#site-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 70px;
+  padding: 0 15px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #d6d3d0;
+  transition: all 500ms ease; }
+  header#site-header #site-branding {
+    display: flex;
+    flex: 0.5;
+    align-items: flex-end;
+    padding-bottom: 7px; }
+    @media (max-width: 1000px) {
+      header#site-header #site-branding #mainBranding {
+        display: none; } }
+    @media (min-width: 1000px) {
+      header#site-header #site-branding #headerBrandingMobile {
+        display: none; } }
+
+.home.transparent-header header#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  border-bottom: 1px solid transparent; }
+
+#site-navigation {
+  flex: 1; }
+  #site-navigation .menu-toggle {
+    height: 8px;
+    width: 20px; }
+    @media (min-width: 768px) {
+      #site-navigation .menu-toggle {
+        display: none; } }
+    #site-navigation .menu-toggle span {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #191a17; }
+  #site-navigation .menu-main-container {
+    height: 100%; }
+    #site-navigation .menu-main-container .menu {
+      height: 100%;
+      display: flex;
+      justify-content: space-around; }
+      #site-navigation .menu-main-container .menu .menu-item {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        border-bottom: 8px solid transparent; }
+        #site-navigation .menu-main-container .menu .menu-item::before {
+          content: '';
+          display: block;
+          width: 1px;
+          height: 69px;
+          margin-right: 11px;
+          background-color: #d6d3d0; }
+        #site-navigation .menu-main-container .menu .menu-item a {
+          font-size: 13px;
+          color: #191a17; }
+      #site-navigation .menu-main-container .menu .menu-item-has-children:hover .sub-menu {
+        visibility: visible;
+        pointer-events: all; }
+      #site-navigation .menu-main-container .menu .menu-item-has-children ul.sub-menu {
+        display: flex;
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
+        padding: 0 15px;
+        white-space: nowrap;
+        background-color: #f0f0f0;
+        height: 40px;
+        justify-content: flex-end;
+        border-bottom: 1px solid #d6d3d0;
+        border-top: 8px solid #f0f0f0; }
+        #site-navigation .menu-main-container .menu .menu-item-has-children ul.sub-menu .menu-item::before {
+          height: 100%; }
+
+.home.transparent-header #site-navigation .menu-main-container .menu .menu-item {
+  border-bottom: 8px solid transparent; }
+  .home.transparent-header #site-navigation .menu-main-container .menu .menu-item::before {
+    background-color: transparent; }
+
+.home.transparent-header #site-navigation .menu-main-container .menu .menu-item-has-children:hover .sub-menu {
+  visibility: visible;
+  pointer-events: all; }
+
+.home.transparent-header #site-navigation .menu-main-container .menu .menu-item-has-children ul.sub-menu {
+  background-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent; }
+  .home.transparent-header #site-navigation .menu-main-container .menu .menu-item-has-children ul.sub-menu .menu-item::before {
+    height: 0; }
+
+.hero--full {
+  min-height: 100vh; }
+  .hero--full img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; }
+
+#eqFooter p,
+#eqFooter a {
+  color: #f0f0f0;
+  font-size: 12px; }
+
+#eqFooter p {
+  margin-bottom: 1rem; }
+
+#eqFooter {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 15px;
+  min-height: 225px;
+  background-color: #aeaca9; }
+  #eqFooter .footer__col {
+    width: 25%;
+    padding-right: 25px; }
+

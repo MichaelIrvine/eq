@@ -1,0 +1,21 @@
+!function(r){var n={};function t(e){if(n[e])return n[e].exports;var _=n[e]={i:e,l:!1,exports:{}};return r[e].call(_.exports,_,_.exports,t),_.l=!0,_.exports}t.m=r,t.c=n,t.d=function(e,_,r){t.o(e,_)||Object.defineProperty(e,_,{enumerable:!0,get:r})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(_,e){if(1&e&&(_=t(_)),8&e)return _;if(4&e&&"object"==typeof _&&_&&_.__esModule)return _;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:_}),2&e&&"string"!=typeof _)for(var n in _)t.d(r,n,function(e){return _[e]}.bind(null,n));return r},t.n=function(e){var _=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(_,"a",_),_},t.o=function(e,_){return Object.prototype.hasOwnProperty.call(e,_)},t.p="",t(t.s=0)}({"./src/js/dropDownNav.js":
+/*!*******************************!*\
+  !*** ./src/js/dropDownNav.js ***!
+  \*******************************/
+/*! exports provided: default */function(module,__webpack_exports__,__webpack_require__){"use strict";eval("__webpack_require__.r(__webpack_exports__);\nvar dropDownNav = function dropDownNav() {\n  var navEl = document.querySelector('.menu-item:last-of-type');\n  var subNavEl = document.querySelector('.sub-menu .menu-item');\n\n  var updateSubNavWidth = function updateSubNavWidth() {\n    var navElWidth = navEl.clientWidth;\n    subNavEl.style.width = \"\".concat(navElWidth, \"px\");\n    console.log(navElWidth, subNavEl.clientWidth);\n  };\n\n  window.addEventListener('DOMContentLoaded', updateSubNavWidth);\n  window.addEventListener('resize', updateSubNavWidth);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (dropDownNav);\n\n//# sourceURL=webpack:///./src/js/dropDownNav.js?")},"./src/js/headerScroll.js":
+/*!********************************!*\
+  !*** ./src/js/headerScroll.js ***!
+  \********************************/
+/*! exports provided: default */function(module,__webpack_exports__,__webpack_require__){"use strict";eval("__webpack_require__.r(__webpack_exports__);\nvar headerScroll = function headerScroll() {\n  if (document.body.classList.contains('home')) {\n    window.addEventListener('scroll', function () {\n      if (window.scrollY >= 100) {\n        document.body.classList.remove('transparent-header');\n      } else {\n        document.body.classList.add('transparent-header');\n      }\n    });\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (headerScroll);\n\n//# sourceURL=webpack:///./src/js/headerScroll.js?")},"./src/main.js":
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/*! no exports provided */function(module,__webpack_exports__,__webpack_require__){"use strict";eval('__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sass/style.scss */ "./src/sass/style.scss");\n/* harmony import */ var _sass_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_sass_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _js_dropDownNav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/dropDownNav */ "./src/js/dropDownNav.js");\n/* harmony import */ var _js_headerScroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/headerScroll */ "./src/js/headerScroll.js");\n // Header & Navigation\n\n\n // Globals\n\nObject(_js_dropDownNav__WEBPACK_IMPORTED_MODULE_1__["default"])();\nObject(_js_headerScroll__WEBPACK_IMPORTED_MODULE_2__["default"])();\n\n//# sourceURL=webpack:///./src/main.js?')},"./src/sass/style.scss":
+/*!*****************************!*\
+  !*** ./src/sass/style.scss ***!
+  \*****************************/
+/*! no static exports found */function(module,exports,__webpack_require__){eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/sass/style.scss?")},0:
+/*!***************************!*\
+  !*** multi ./src/main.js ***!
+  \***************************/
+/*! no static exports found */function(module,exports,__webpack_require__){eval('module.exports = __webpack_require__(/*! ./src/main.js */"./src/main.js");\n\n\n//# sourceURL=webpack:///multi_./src/main.js?')}});

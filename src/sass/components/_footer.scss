@@ -1,0 +1,22 @@
+#eqFooter p,
+#eqFooter a {
+  color: $eqWhite;
+  font-size: 12px;
+}
+
+#eqFooter p {
+  margin-bottom: 1rem;
+}
+
+#eqFooter {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 15px;
+  min-height: 225px;
+  background-color: $eqDarkGrey;
+
+  .footer__col {
+    width: 25%;
+    padding-right: 25px;
+  }
+}
