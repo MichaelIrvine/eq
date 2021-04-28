@@ -1,0 +1,25 @@
+// Front Page
+
+// Hero lives in Components folder
+
+// Two Column Article Area
+
+#front-page-content__wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+
+  .col_2x {
+    flex: 1;
+    padding: 15px;
+  }
+
+  #front-page__col-01 {
+    border-left: 1px solid $eqLightGrey;
+
+    .featured-post-image__wrapper {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

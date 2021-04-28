@@ -75,7 +75,13 @@ ol[class] {
 /* Remove list styles on ul, ol  */
 ul,
 ol {
-  list-style: none; }
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px; }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
@@ -174,6 +180,27 @@ html {
   font-weight: 400;
   font-style: normal; }
 
+h2 {
+  font-size: 1.75rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #191a17; }
+
+h3 {
+  font-size: 1.5rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #191a17; }
+
+h4 {
+  font-size: 1rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #8f8e8b; }
+
 body {
   background-color: #f0f0f0; }
   body .site-main {
@@ -182,6 +209,23 @@ body {
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
+.flex__wrapper {
+  display: flex; }
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+#front-page-content__wrapper {
+  display: flex;
+  flex-direction: row-reverse; }
+  #front-page-content__wrapper .col_2x {
+    flex: 1;
+    padding: 15px; }
+  #front-page-content__wrapper #front-page__col-01 {
+    border-left: 1px solid #d6d3d0; }
+    #front-page-content__wrapper #front-page__col-01 .featured-post-image__wrapper img {
+      width: 100%; }
+
 /*--------------------------------------------------------------
 # Templates
 --------------------------------------------------------------*/
@@ -250,7 +294,7 @@ header#site-header {
           content: '';
           display: block;
           width: 1px;
-          height: 69px;
+          height: 52px;
           margin-right: 11px;
           background-color: #d6d3d0; }
         #site-navigation .menu-main-container .menu .menu-item a {
