@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -15,24 +16,84 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main class="page__approach site-main">
+  <!-- Page Heading -->
+  <?php
+	if (have_rows('approach_heading')) :
+		while (have_rows('approach_heading')) : the_row();
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+			$apContent = get_sub_field('approach_text');
+			$apImage = get_sub_field('approach_image');
+	?>
+  <section id="approach-heading" class="flex__wrapper">
+    <div class="flex__wrapper">
+      <div class="content__wrapper">
+        <?php echo $apContent; ?>
+      </div>
+    </div>
+    <div>
 
-			get_template_part( 'template-parts/content', 'page' );
+      <?php echo wp_get_attachment_image($apImage, 'full'); ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+    </div>
+  </section>
+  <?php
+		endwhile;
+	endif;
+	?>
+  <!-- Timeline Section -->
+  <section id="approach-timeline">
+    <div class="timeline__title-row timeline__row grid__wrapper">
+      <div>
+        <h4>History</h4>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-		endwhile; // End of the loop.
-		?>
+    <!-- Flexible Content -->
+    <?php
+		if (have_rows('approach_timeline')) :
+			while (have_rows('approach_timeline')) : the_row();
+				if (get_row_layout() == 'timeline') :
 
-	</main><!-- #main -->
+					$rows = get_sub_field('timeline_item'); ?>
+
+    <?php foreach ($rows as $row) : ?>
+    <div class="timeline__title-row timeline__row grid__wrapper">
+      <div>
+        <h4><?php echo $row['year']; ?></h4>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <?php endforeach; ?>
+
+    <?php
+				endif;
+			endwhile;
+		endif; ?>
+    <div class="timeline__title-row timeline__row grid__wrapper">
+      <div>
+        <h4>History</h4>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Timeline Footer -->
+    <div class="timeline__footer-row timeline__row grid__wrapper">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </section>
+
+</main>
 
 <?php
-get_sidebar();
 get_footer();
