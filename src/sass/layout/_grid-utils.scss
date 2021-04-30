@@ -1,0 +1,13 @@
+.grid__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &._3x {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.--responsive {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+}

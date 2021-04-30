@@ -255,6 +255,24 @@ function change_post_object_label()
 add_action('init', 'change_post_object_label');
 add_action('admin_menu', 'change_post_menu_label');
 
+
+/**
+ * Custom Category / taxonomy filter
+ */
+function category_filter()
+{
+	wp_enqueue_script('ajax-filter', get_template_directory_uri() . '/src/js/ajax-filter.js', array('jquery'), _EQ_VERSION, true);
+
+	wp_localize_script('ajax-filter', 'wpAjax', array('ajaxUrl' => admin_url('admin-ajax.php')));
+}
+add_action('wp_enqueue_scripts', 'category_filter');
+
+// Require file for Ajax Filter
+require get_template_directory() . '/inc/ajax-filter/ajax-filter.php';
+
+
+
+
 /**
  * Custom template tags for this theme.
  */

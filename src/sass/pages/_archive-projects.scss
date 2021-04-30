@@ -1,0 +1,28 @@
+.archive-page__projects {
+  padding: 6rem 15px 0;
+
+  .categories-filter__wrapper {
+    border-bottom: 1px solid $eqLightGrey;
+    padding-bottom: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .filtered-articles {
+    gap: 1rem;
+    .article__wrapper {
+      border-bottom: 1px solid $eqLightGrey;
+      > div:first-of-type {
+        overflow: hidden;
+        object-fit: cover;
+      }
+      img {
+        width: 100%;
+        transition: transform 850ms ease;
+      }
+
+      > div:last-of-type {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}

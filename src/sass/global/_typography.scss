@@ -6,6 +6,12 @@ html {
 }
 
 h1 {
+  font-size: 1.75rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: $eqBlack;
+  line-height: 1.25;
 }
 
 h2 {
@@ -14,6 +20,7 @@ h2 {
   font-weight: 400;
   font-style: normal;
   color: $eqBlack;
+  line-height: 1.25;
 }
 
 h3 {
@@ -22,11 +29,37 @@ h3 {
   font-weight: 400;
   font-style: normal;
   color: $eqBlack;
+  line-height: 1.25;
 }
 h4 {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqSubHeader;
+  line-height: 1.25;
+}
+
+p {
+  font-size: 0.85rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: $eqBlack;
+}
+
+p.underlined {
+  text-decoration: underline;
+}
+
+a {
+  font-size: 0.85rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: $eqBlue;
+
+  &:hover {
+    color: $eqDarkGrey;
+  }
 }

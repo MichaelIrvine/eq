@@ -2,9 +2,10 @@
 
 body {
   background-color: $eqWhite;
+  position: relative;
+  margin-top: 70px;
+}
 
-  // MIN HEIGHT FOR TESTING
-  .site-main {
-    min-height: 100vh;
-  }
+body.home {
+  margin-top: 0;
 }

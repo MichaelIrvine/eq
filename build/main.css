@@ -180,31 +180,64 @@ html {
   font-weight: 400;
   font-style: normal; }
 
+h1 {
+  font-size: 1.75rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #191a17;
+  line-height: 1.25; }
+
 h2 {
   font-size: 1.75rem;
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #191a17; }
+  color: #191a17;
+  line-height: 1.25; }
 
 h3 {
   font-size: 1.5rem;
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #191a17; }
+  color: #191a17;
+  line-height: 1.25; }
 
 h4 {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-family: neue-haas-grotesk-text, sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #8f8e8b; }
+  color: #8f8e8b;
+  line-height: 1.25; }
+
+p {
+  font-size: 0.85rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #191a17; }
+
+p.underlined {
+  text-decoration: underline; }
+
+a {
+  font-size: 0.85rem;
+  font-family: neue-haas-grotesk-text, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #3658a8; }
+  a:hover {
+    color: #aeaca9; }
 
 body {
-  background-color: #f0f0f0; }
-  body .site-main {
-    min-height: 100vh; }
+  background-color: #f0f0f0;
+  position: relative;
+  margin-top: 70px; }
+
+body.home {
+  margin-top: 0; }
 
 /*--------------------------------------------------------------
 # Layout
@@ -212,19 +245,98 @@ body {
 .flex__wrapper {
   display: flex; }
 
+.grid__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  .grid__wrapper._3x {
+    grid-template-columns: repeat(3, 1fr); }
+  .grid__wrapper.--responsive {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem; }
+
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
 #front-page-content__wrapper {
   display: flex;
-  flex-direction: row-reverse; }
-  #front-page-content__wrapper .col_2x {
-    flex: 1;
-    padding: 15px; }
+  flex-direction: row-reverse;
+  margin-top: 8px;
+  margin-bottom: 15px; }
   #front-page-content__wrapper #front-page__col-01 {
-    border-left: 1px solid #d6d3d0; }
-    #front-page-content__wrapper #front-page__col-01 .featured-post-image__wrapper img {
-      width: 100%; }
+    border-left: 1px solid #d6d3d0;
+    padding: 0 15px;
+    flex: 1; }
+    #front-page-content__wrapper #front-page__col-01 > div {
+      margin-bottom: 15px; }
+    #front-page-content__wrapper #front-page__col-01 .featured-post__wrapper {
+      border-bottom: 1px solid #d6d3d0;
+      padding-bottom: 15px;
+      min-height: 60vh;
+      grid-template-columns: 1.5fr 1fr;
+      grid-gap: 80px; }
+      #front-page-content__wrapper #front-page__col-01 .featured-post__wrapper > div:first-of-type {
+        flex: 1;
+        padding-right: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; }
+      #front-page-content__wrapper #front-page__col-01 .featured-post__wrapper > div:last-of-type {
+        flex: 1;
+        display: flex;
+        align-items: flex-end; }
+        #front-page-content__wrapper #front-page__col-01 .featured-post__wrapper > div:last-of-type div {
+          width: 100%; }
+          #front-page-content__wrapper #front-page__col-01 .featured-post__wrapper > div:last-of-type div img {
+            width: 100%;
+            filter: grayscale(1); }
+      #front-page-content__wrapper #front-page__col-01 .featured-post__wrapper .featured-content__wrapper .featured-post-text__wrapper {
+        display: none; }
+    #front-page-content__wrapper #front-page__col-01 .featured-post-image__wrapper {
+      border-bottom: 1px solid #d6d3d0;
+      padding-bottom: 15px; }
+      #front-page-content__wrapper #front-page__col-01 .featured-post-image__wrapper img {
+        width: 100%; }
+  #front-page-content__wrapper #front-page__col-02 {
+    margin-top: 100vh;
+    flex: 1;
+    padding: 0 15px; }
+    #front-page-content__wrapper #front-page__col-02 > div:first-of-type {
+      border-bottom: 1px solid #d6d3d0;
+      min-height: 60vh;
+      margin-bottom: 15px; }
+    #front-page-content__wrapper #front-page__col-02 > div:last-of-type {
+      border-bottom: 1px solid #d6d3d0;
+      min-height: 60vh; }
+    #front-page-content__wrapper #front-page__col-02 .section-title__wrapper {
+      margin-bottom: 1.5rem; }
+    #front-page-content__wrapper #front-page__col-02 .section-content__wrapper {
+      width: 60%; }
+      #front-page-content__wrapper #front-page__col-02 .section-content__wrapper p,
+      #front-page-content__wrapper #front-page__col-02 .section-content__wrapper a {
+        margin-bottom: 1.25rem; }
+      #front-page-content__wrapper #front-page__col-02 .section-content__wrapper .news-article-list .news-article {
+        margin-bottom: 15px; }
+        #front-page-content__wrapper #front-page__col-02 .section-content__wrapper .news-article-list .news-article p.underlined {
+          margin-bottom: 0; }
+
+.archive-page__projects {
+  padding: 6rem 15px 0; }
+  .archive-page__projects .categories-filter__wrapper {
+    border-bottom: 1px solid #d6d3d0;
+    padding-bottom: 15px;
+    margin-bottom: 1rem; }
+  .archive-page__projects .filtered-articles {
+    gap: 1rem; }
+    .archive-page__projects .filtered-articles .article__wrapper {
+      border-bottom: 1px solid #d6d3d0; }
+      .archive-page__projects .filtered-articles .article__wrapper > div:first-of-type {
+        overflow: hidden;
+        object-fit: cover; }
+      .archive-page__projects .filtered-articles .article__wrapper img {
+        width: 100%;
+        transition: transform 850ms ease; }
+      .archive-page__projects .filtered-articles .article__wrapper > div:last-of-type {
+        margin-bottom: 4rem; }
 
 /*--------------------------------------------------------------
 # Templates
@@ -237,6 +349,7 @@ body {
 --------------------------------------------------------------*/
 header#site-header {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   display: flex;
