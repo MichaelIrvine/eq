@@ -5,8 +5,6 @@ const dropDownNav = () => {
   const updateSubNavWidth = () => {
     let navElWidth = navEl.clientWidth;
     subNavEl.style.width = `${navElWidth}px`;
-
-    console.log(navElWidth, subNavEl.clientWidth);
   };
 
   window.addEventListener('DOMContentLoaded', updateSubNavWidth);

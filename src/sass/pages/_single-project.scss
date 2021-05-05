@@ -1,0 +1,36 @@
+.single-projects {
+  // Tackle header styles here
+
+  .post-hero {
+    max-height: calc(100vh - 70px);
+    padding: 15px 15px 0;
+    margin-bottom: 30px;
+
+    .post-thumbnail {
+      img {
+        max-height: calc(100vh - 70px);
+      }
+    }
+  }
+
+  .post-section {
+    margin: 0 15px 15px;
+  }
+
+  .post-section-title {
+    padding: 0.5rem 0 0 0;
+    margin-bottom: 2.5rem;
+    border-top: 1px solid $eqLightGrey;
+  }
+
+  .masonry__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flexible-columns {
+    .flex-col {
+      width: 33.3333%;
+    }
+  }
+}

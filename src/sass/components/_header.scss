@@ -8,8 +8,8 @@ header#site-header {
   padding: 0 15px;
   background-color: $eqWhite;
   border-bottom: 1px solid $eqLightGrey;
-
   transition: all 500ms ease;
+  z-index: 9999;
 
   #site-branding {
     display: flex;

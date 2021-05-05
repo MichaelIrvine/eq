@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all pages
  *
@@ -15,24 +16,62 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main class="page-contact site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+  <section id="contactDetails" class="flex__wrapper">
 
-			get_template_part( 'template-parts/content', 'page' );
+    <?php
+    $contactDetails = get_field('contact_details');
+    if ($contactDetails) : ?>
+    <div>
+      <h4><?php echo $contactDetails['contact_details_title']; ?> </h4>
+      <?php echo $contactDetails['contact_details']; ?>
+    </div>
+    <?php endif; ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+    <div>
+      <?php
+      $careersDetails = get_field('careers_details');
+      if ($contactDetails) : ?>
 
-		endwhile; // End of the loop.
-		?>
+      <h4><?php echo $careersDetails['careers_title']; ?> </h4>
+      <?php echo $careersDetails['careers_text']; ?>
 
-	</main><!-- #main -->
+      <?php endif; ?>
+
+      <?php
+      $jobPosts = get_field('job_postings');
+
+      if ($jobPosts) : ?>
+
+      <p>Current Openings:</p>
+      <ul>
+        <?php
+          foreach ($jobPosts as $jobPost) :  ?>
+        <li>
+          <p><?php echo $jobPost['job_title']; ?></p>
+          <a href="<?php echo esc_url($jobPost['job_link']); ?>">Learn More</a>
+        </li>
+        <?php endforeach; ?>
+      </ul>
+      <?php endif; ?>
+    </div>
+
+    <div>
+      <?php echo the_field('contact_form'); ?>
+    </div>
+  </section>
+  <section id="contactImage">
+    <div>
+      <?php
+      $image = get_field('contact_image');
+      $size = 'full';
+      if ($image) {
+        echo wp_get_attachment_image($image, $size);
+      } ?>
+    </div>
+  </section>
+</main>
 
 <?php
-get_sidebar();
 get_footer();

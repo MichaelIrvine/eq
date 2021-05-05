@@ -60,14 +60,26 @@ get_header();
 
 					$rows = get_sub_field('timeline_item'); ?>
 
-    <?php foreach ($rows as $row) : ?>
+    <?php foreach ($rows as $key => $row) : ?>
+
     <div class="timeline__title-row timeline__row grid__wrapper">
       <div>
         <h4><?php echo $row['year']; ?></h4>
       </div>
+      <?php if ($key % 2 == 0) : ?>
+      <div><?php echo $row['content'] ?></div>
       <div></div>
+      <?php else : ?>
       <div></div>
-      <div></div>
+      <div><?php echo $row['content'] ?></div>
+      <?php endif; ?>
+      <div>
+        <!-- Link - If exists -->
+        <?php if ($row['link']) : ?>
+        <a href="<?php echo esc_url($row['link']); ?>">See Project</a>
+
+        <?php endif; ?>
+      </div>
     </div>
     <?php endforeach; ?>
 
@@ -75,14 +87,6 @@ get_header();
 				endif;
 			endwhile;
 		endif; ?>
-    <div class="timeline__title-row timeline__row grid__wrapper">
-      <div>
-        <h4>History</h4>
-      </div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
 
     <!-- Timeline Footer -->
     <div class="timeline__footer-row timeline__row grid__wrapper">
