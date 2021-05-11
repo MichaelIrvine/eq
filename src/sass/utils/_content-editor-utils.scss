@@ -1,0 +1,22 @@
+// Utility Classes to reset styles from WYSIWYG/Content Editor
+
+.content-editor__reset {
+  //
+  // Text Styles
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-size: 0.85rem;
+    font-family: 'MaisonNeue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: $eqSubHeader;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}

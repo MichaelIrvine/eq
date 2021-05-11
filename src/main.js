@@ -1,14 +1,21 @@
 import './sass/style.scss';
 
+import { gsap, Power2 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 // Header & Navigation
 import dropDownNav from './js/dropDownNav';
 import headerScroll from './js/headerScroll';
-import masonryGallery from './js/masonry';
+import bioModal from './js/bioModal';
+import lazyLoad from './js/lazyLoad';
 
 // Globals
 dropDownNav();
 headerScroll();
+lazyLoad();
 
-// if (document.body.classList.contains('single-projects')) {
-//   masonryGallery();
-// }
+// Page Level
+if (document.body.classList.contains('page-about')) {
+  bioModal();
+}

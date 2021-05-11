@@ -49,6 +49,14 @@ if (!function_exists('eq_setup')) :
 		 */
 		add_theme_support('post-thumbnails');
 
+		/* 
+		*
+		* Custom Image Sizes
+		*
+		*/
+
+		add_image_size('preload', 15, 10, array('center', 'center'));
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
@@ -200,19 +208,32 @@ add_action('widgets_init', 'eq_widgets_init');
  */
 function eq_scripts()
 {
+	wp_enqueue_style('eq-fonts', get_template_directory_uri() . '/build/fonts.css', array(), _EQ_VERSION);
 	wp_enqueue_style('eq-style', get_template_directory_uri() . '/build/main.css', array(), _EQ_VERSION);
 
 	wp_enqueue_script('eq-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), _EQ_VERSION, true);
 	wp_enqueue_script('eq-main-js', get_template_directory_uri() . '/build/main-bundle.js', array(), _EQ_VERSION, true);
 
-	// typekit
-	wp_enqueue_style('eq-typekit', 'https://use.typekit.net/eqv4zxl.css', array(), _EQ_VERSION, true);
+
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
 add_action('wp_enqueue_scripts', 'eq_scripts');
+
+
+/**
+ * Custom Function for Excerpt Size
+ */
+function eq_excerpt($num)
+{
+	$limit = $num + 1;
+	$excerpt = explode(' ', get_the_excerpt(), $limit);
+	array_pop($excerpt);
+	$excerpt = implode(" ", $excerpt) . "...";
+	echo $excerpt;
+}
 
 /**
  * Remove Menu Items from Dashboard
@@ -255,7 +276,6 @@ function change_post_object_label()
 add_action('init', 'change_post_object_label');
 add_action('admin_menu', 'change_post_menu_label');
 
-
 /**
  * Custom Category / taxonomy filter
  */
@@ -271,6 +291,21 @@ add_action('wp_enqueue_scripts', 'category_filter');
 require get_template_directory() . '/inc/ajax-filter/ajax-filter.php';
 
 
+/**
+ * Add custom class to body
+ */
+
+function eq_add_page_slug_body_class($classes)
+{
+	global $post;
+
+	if (isset($post)) {
+		$classes[] = 'page-' . $post->post_name;
+	}
+	return $classes;
+}
+
+add_filter('body_class', 'eq_add_page_slug_body_class');
 
 
 /**

@@ -1,13 +1,13 @@
 html {
   font-size: 16px;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 h1 {
   font-size: 1.75rem;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqBlack;
@@ -16,7 +16,7 @@ h1 {
 
 h2 {
   font-size: 1.75rem;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqBlack;
@@ -25,7 +25,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqBlack;
@@ -33,7 +33,7 @@ h3 {
 }
 h4 {
   font-size: 0.85rem;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqSubHeader;
@@ -42,7 +42,7 @@ h4 {
 
 p {
   font-size: 0.85rem;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqBlack;
@@ -52,9 +52,13 @@ p.underlined {
   text-decoration: underline;
 }
 
+p.light {
+  color: $eqSubHeader;
+}
+
 a {
   font-size: 0.85rem;
-  font-family: neue-haas-grotesk-text, sans-serif;
+  font-family: 'MaisonNeue', sans-serif;
   font-weight: 400;
   font-style: normal;
   color: $eqBlue;

@@ -2,13 +2,36 @@
   // Tackle header styles here
 
   .post-hero {
-    max-height: calc(100vh - 70px);
     padding: 15px 15px 0;
     margin-bottom: 30px;
 
     .post-thumbnail {
       img {
-        max-height: calc(100vh - 70px);
+        max-height: calc(100vh - 85px);
+      }
+    }
+  }
+
+  #post-info {
+    margin-bottom: 8rem;
+    .post-title__col {
+      width: 50%;
+    }
+    .post-info__col {
+      width: 50%;
+
+      div:first-of-type {
+        width: 80%;
+        p {
+          width: 80%;
+        }
+      }
+      div:last-of-type {
+        width: 20%;
+
+        li {
+          margin-bottom: 1rem;
+        }
       }
     }
   }
@@ -23,14 +46,47 @@
     border-top: 1px solid $eqLightGrey;
   }
 
-  .masonry__wrapper {
+  .gallery__wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    &.--full-bleed {
+      grid-template-columns: 1fr;
+    }
+    &.--two-col {
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    &.--multi-col {
+      display: block;
+      column-count: 2;
+
+      .gallery-item {
+        padding-bottom: 15px;
+      }
+    }
   }
 
   .flexible-columns {
+    margin-bottom: 2.5rem;
+
     .flex-col {
       width: 33.3333%;
+      &:first-of-type {
+        margin-right: 10px;
+        padding-right: 10px;
+      }
+      &:nth-of-type(2) {
+        margin-right: 10px;
+        padding-right: 10px;
+      }
+      &:last-of-type {
+        margin-right: 0;
+        padding-right: 0;
+      }
     }
   }
+}
+
+.gallery__wrapper + .flexible-columns {
+  margin-top: 2.5rem;
 }

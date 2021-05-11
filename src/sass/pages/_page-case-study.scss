@@ -1,13 +1,14 @@
 .page-case-studies {
-  padding: 0 15px;
-  padding-top: 2rem;
   .flex__wrapper {
+    padding-top: 2.5rem;
     > div:first-of-type {
       flex: 0.5;
-      padding-right: 8px;
+      padding-right: 1px;
+      padding-left: 15px;
 
       p {
         margin-bottom: 1rem;
+        padding-right: 15px;
       }
     }
     > div:last-of-type {
@@ -33,6 +34,11 @@
           margin-bottom: 15px;
           border-bottom: 1px solid #d6d3d0;
           padding-bottom: 2.5rem;
+        }
+
+        img {
+          min-height: 270px;
+          max-height: 270px;
         }
       }
 

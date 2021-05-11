@@ -37,8 +37,12 @@ get_header();
             $title = get_the_title($case_study->ID);
           ?>
         <li>
+
           <a href="<?php echo esc_url($permalink); ?>">
-            <?php echo get_the_post_thumbnail($case_study->ID, "medium"); ?>
+            <img src="<?php echo get_the_post_thumbnail_url($case_study->ID, "preload"); ?>"
+              data-src="<?php echo get_the_post_thumbnail_url($case_study->ID, "full"); ?>" class="lazy"
+              alt="<?php echo esc_html($title); ?>">
+
           </a>
           <h4>Tags Here</h4>
           <a href="<?php echo esc_url($permalink); ?>">

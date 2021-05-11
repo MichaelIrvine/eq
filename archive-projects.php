@@ -20,35 +20,35 @@ get_header();
       </li>
       <?php
 
-			$cat_args_parents = array(
-				'exclude' => array(1),
-				'option_all' => 'All',
-				'parent' => 0,
-				'hide_empty' => false,
-				'include' => '10, 12'
-			);
+      $cat_args_parents = array(
+        'exclude' => array(1),
+        'option_all' => 'All',
+        'parent' => 0,
+        'hide_empty' => false,
+        'include' => '10, 12'
+      );
 
-			$categories = get_categories($cat_args_parents);
+      $categories = get_categories($cat_args_parents);
 
-			foreach ($categories as $cat) : ?>
+      foreach ($categories as $cat) : ?>
 
-      <li class="category-filter__item">
+      <li class="parent-category-item">
         <p><?php echo $cat->name; ?></p>
         <ul>
           <?php
-						$subCategories = get_categories(
-							array(
-								'child_of' => $cat->cat_ID,
-								'order' => 'ASC',
-								'hide_empty' => false
-							)
-						);
+            $subCategories = get_categories(
+              array(
+                'child_of' => $cat->cat_ID,
+                'order' => 'ASC',
+                'hide_empty' => false
+              )
+            );
 
-						?>
+            ?>
           <?php
-						foreach ($subCategories as $subCat) : ?>
-          <li>
-            <a href="/">
+            foreach ($subCategories as $subCat) : ?>
+          <li class="category-filter__item">
+            <a data-category="<?php echo $subCat->term_id; ?>" href="<?php echo get_category_link($subCat->term_id) ?>">
               <?php echo $subCat->name ?>
             </a>
           </li>
@@ -56,8 +56,8 @@ get_header();
         </ul>
       </li>
       <?php
-			endforeach;
-			?>
+      endforeach;
+      ?>
 
     </ul>
   </div>
@@ -65,35 +65,36 @@ get_header();
   <div class="filtered-articles grid__wrapper _3x">
     <?php
 
-		$args = array(
-			'post_type' => 'projects',
-			'posts_per_page' => -1,
-		);
+    $args = array(
+      'post_type' => 'projects',
+      'posts_per_page' => -1,
+    );
 
-		$the_query = new WP_Query($args);
+    $the_query = new WP_Query($args);
 
-		while ($the_query->have_posts()) : $the_query->the_post();
+    while ($the_query->have_posts()) : $the_query->the_post();
 
-		?>
+    ?>
 
     <div class="article__wrapper">
       <div>
         <a href="<?= the_permalink(); ?>" class="feature-image-link">
-          <?php
-						the_post_thumbnail('full');
-						?>
+          <div class="aspect__wrapper _5x8">
+            <img src="<? echo get_the_post_thumbnail_url('','preload'); ?>"
+              data-src="<? echo get_the_post_thumbnail_url('','full');?>" alt="<?php echo the_title(); ?>" class="lazy">
+          </div>
         </a>
       </div>
       <div>
         <p class="post-category">
 
           <?php
-						$args = [
-							'child_of' => '10, 12'
-						];
+            $args = [
+              'child_of' => '10, 12'
+            ];
 
-						$postCats = get_the_category($args);
-						foreach ($postCats as $cat) : ?>
+            $postCats = get_the_category($args);
+            foreach ($postCats as $cat) : ?>
         <p> <?php echo $cat->name; ?></p>
 
         <?php endforeach; ?>
@@ -103,10 +104,11 @@ get_header();
           <h3><?php the_title(); ?></h3>
         </a>
       </div>
+      <span></span>
     </div>
 
     <?php endwhile;
-		wp_reset_postdata(); ?>
+    wp_reset_postdata(); ?>
 
   </div>
 </main>

@@ -10,15 +10,12 @@
 
       $(this).addClass('current-active-category');
 
-      $('.article__container').fadeOut();
-
       $.ajax({
         url: wpAjax.ajaxUrl,
         data: { action: 'filter', category: data },
         type: 'POST',
         success: function (result) {
           $('.filtered-articles').html(result);
-          $('.article__container').fadeIn();
         },
         error: function (result) {
           $('.filtered-articles').html(result);

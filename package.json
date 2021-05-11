@@ -26,7 +26,6 @@
   "dependencies": {
     "browser-sync": "^2.26.12",
     "gsap": "^3.6.1",
-    "masonry-layout": "^4.2.2",
     "minimasonry": "^1.1.6"
   }
 }
