@@ -55,7 +55,10 @@ if (!function_exists('eq_setup')) :
 		*
 		*/
 
+		// Preload & Placeholders
 		add_image_size('preload', 15, 10, array('center', 'center'));
+		// Two Column hero section
+		add_image_size('preloadHalfHero', 150);
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
@@ -211,7 +214,7 @@ function eq_scripts()
 	wp_enqueue_style('eq-fonts', get_template_directory_uri() . '/build/fonts.css', array(), _EQ_VERSION);
 	wp_enqueue_style('eq-style', get_template_directory_uri() . '/build/main.css', array(), _EQ_VERSION);
 
-	wp_enqueue_script('eq-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), _EQ_VERSION, true);
+	// wp_enqueue_script('eq-navigation', get_template_directory_uri() . '/src/js/navigation.js', array(), _EQ_VERSION, true);
 	wp_enqueue_script('eq-main-js', get_template_directory_uri() . '/build/main-bundle.js', array(), _EQ_VERSION, true);
 
 

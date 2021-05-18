@@ -17,22 +17,23 @@ get_header();
 ?>
 <main id="primary" class="site-main">
 
-  <section class="hero hero--full">
-    <div>
+  <section id="front-page-hero" class="hero--full">
+    <div class="screen-reveal"></div>
+    <div class="hero-img__wrapper">
       <?php
-			$image = get_field('page_hero');
-			$size = 'full';
-			if ($image) {
-				echo wp_get_attachment_image($image, $size);
-			} ?>
+      $image = get_field('page_hero');
+      $size = 'full';
+      if ($image) {
+        echo wp_get_attachment_image($image, $size);
+      } ?>
     </div>
   </section>
   <section id="front-page-content__wrapper">
     <div id="front-page__col-01">
 
       <?php
-			$featured_cs = get_field('featured_case_study');
-			if ($featured_cs) : ?>
+      $featured_cs = get_field('featured_case_study');
+      if ($featured_cs) : ?>
       <div class="featured-post__wrapper grid__wrapper">
         <div>
           <div class="featured-post-title__wrapper">
@@ -65,13 +66,15 @@ get_header();
       <?php endif; ?>
       <div class="featured-post-image__wrapper">
         <?php
-				$image = get_field('featured_article_image');
-				$size = 'full';
-				if ($image) {
-					echo wp_get_attachment_image($image, $size);
-				} ?>
-      </div>
+        $featuredImage = get_field('featured_article_image');
+        $preloadImage = $featuredImage['sizes']['preload'];
+        if (!empty($featuredImage)) : ?>
 
+        <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($featuredImage['url']); ?>"
+          class="lazy" alt="<?php echo esc_attr($featuredImage['alt']); ?>" />
+        <?php endif; ?>
+
+      </div>
     </div>
     <div id="front-page__col-02">
       <div id="section-about">
@@ -81,6 +84,16 @@ get_header();
         <div class="section-content__wrapper">
           <?php the_field('front_page_about'); ?>
           <a href="/about" class="eq-link">Read More</a>
+
+          <div class="image__wrapper--mobile">
+            <?php
+            if (!empty($featuredImage)) : ?>
+
+            <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($featuredImage['url']); ?>"
+              class="lazy" alt="<?php echo esc_attr($featuredImage['alt']); ?>" />
+            <?php endif; ?>
+          </div>
+
         </div>
       </div>
       <div id="section-news">
@@ -89,15 +102,15 @@ get_header();
         </div>
         <div class="section-content__wrapper">
           <?php
-					$featured_posts = get_field('featured_news');
-					if ($featured_posts) : ?>
+          $featured_posts = get_field('featured_news');
+          if ($featured_posts) : ?>
           <ul class="news-article-list">
             <?php foreach ($featured_posts as $featured_post) :
-								$post_date = get_the_date("m.d.y", $featured_post->ID);
-								$permalink = get_permalink($featured_post->ID);
-								$title = get_the_title($featured_post->ID);
-								$excerpt = get_the_excerpt($featured_post->ID);
-							?>
+                $post_date = get_the_date("m.d.y", $featured_post->ID);
+                $permalink = get_permalink($featured_post->ID);
+                $title = get_the_title($featured_post->ID);
+                $excerpt = get_the_excerpt($featured_post->ID);
+              ?>
             <li class="news-article">
               <p class="underlined"><?php echo esc_html($post_date); ?></p>
               <p><?php echo $excerpt; ?></p>

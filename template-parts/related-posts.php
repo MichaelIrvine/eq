@@ -15,13 +15,18 @@ if ($related_posts) :
       <a href="<?php the_permalink(); ?>">
         <img src="<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>" alt="<?php the_title(); ?>">
       </a>
-      <?php $tags = get_the_tags($post->ID);
-          if ($tags) {
-            foreach ($tags as $tag) {
-              echo '<h4>' . $tag->name . '</h4>';
-            }
-          }
-          ?>
+      <?php $postCats = get_the_category($post->ID); ?>
+      <ul class="post-category-list">
+        <?php foreach ($postCats as $postCat) : ?>
+        <?php if ($postCat->parent != 0) : ?>
+        <li>
+          <p class="light"><?php echo $postCat->name; ?></p>
+        </li>
+
+        <?php
+              endif;
+            endforeach; ?>
+      </ul>
       <a href="<?php the_permalink(); ?>">
         <h3><?php the_title(); ?></h3>
       </a>

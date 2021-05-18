@@ -1,10 +1,32 @@
 .page-case-studies {
   .flex__wrapper {
+    position: relative;
     padding-top: 2.5rem;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
     > div:first-of-type {
       flex: 0.5;
       padding-right: 1px;
       padding-left: 15px;
+      position: sticky;
+      top: 115px;
+      height: 100vh;
+
+      @media (max-width: 800px) {
+        top: 0;
+        width: 60%;
+        height: auto;
+        margin-top: 60px;
+        position: relative;
+        margin-bottom: 60px;
+      }
+
+      @media (max-width: 500px) {
+        width: 100%;
+      }
 
       p {
         margin-bottom: 1rem;
@@ -24,7 +46,32 @@
       gap: 1rem;
       row-gap: 0;
 
-      li {
+      @media (max-width: 930px) {
+        grid-template-columns: 1fr;
+      }
+
+      > li {
+        @media (max-width: 930px) {
+          display: grid;
+          grid-template-columns: 1fr 1.5fr;
+          gap: 15px;
+          margin-bottom: 60px;
+          padding-bottom: 60px;
+          border-bottom: 1px solid $eqLightGrey;
+        }
+
+        span {
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $eqLightGrey;
+          margin-bottom: 15px;
+
+          @media (max-width: 930px) {
+            display: none;
+          }
+        }
+
         h1,
         h2,
         h3 {
@@ -32,19 +79,45 @@
         }
         p {
           margin-bottom: 15px;
-          border-bottom: 1px solid #d6d3d0;
           padding-bottom: 2.5rem;
+
+          @media (max-width: 930px) {
+            padding-bottom: 0;
+          }
         }
 
         img {
+          object-fit: cover;
           min-height: 270px;
           max-height: 270px;
         }
+
+        ul li p {
+          margin-bottom: 0.5rem;
+          padding-bottom: 0;
+        }
       }
 
-      li:nth-of-type(odd) {
+      > li:nth-of-type(odd) {
         border-right: 1px solid $eqLightGrey;
         padding-right: 15px;
+      }
+      > li:nth-of-type(even) {
+        border-right: 0;
+        padding-right: 15px;
+      }
+
+      > li:first-of-type span {
+        display: none;
+      }
+      > li:nth-of-type(2) span {
+        display: none;
+      }
+
+      > li:last-of-type {
+        @media (max-width: 930px) {
+          border-bottom: 0;
+        }
       }
     }
   }

@@ -16,7 +16,9 @@ const lazyLoad = () => {
         entries.forEach(function (entry) {
           if (entry.intersectionRatio > 0) {
             let image = entry.target;
+
             image.src = image.dataset.src;
+            image.classList.remove('lazy');
 
             observer.unobserve(image);
           }

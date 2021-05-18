@@ -2,13 +2,47 @@
 
 // Hero lives in Components folder
 
-// Two Column Article Area
+// Animate Hero
+.js-loading #front-page-hero .screen-reveal {
+  min-height: 100vh;
+}
+.js-loading #front-page-hero .hero-img__wrapper img {
+  padding: 30px;
+}
+
+#front-page-hero {
+  position: relative;
+  .screen-reveal {
+    min-height: 0vh;
+    width: 100%;
+    background-color: $eqWhite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: min-height 800ms ease-in-out;
+  }
+
+  .hero-img__wrapper {
+    img {
+      min-height: 100vh;
+      min-width: 100%;
+      object-fit: cover;
+      padding: 0;
+      transition: padding 1100ms ease-in-out;
+    }
+  }
+}
 
 #front-page-content__wrapper {
   display: flex;
   flex-direction: row-reverse;
   margin-top: 8px;
   margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   #front-page__col-01 {
     border-left: 1px solid $eqLightGrey;
@@ -25,6 +59,11 @@
       min-height: 60vh;
       grid-template-columns: 1.5fr 1fr;
       grid-gap: 80px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
 
       > div:first-of-type {
         flex: 1;
@@ -43,6 +82,10 @@
           img {
             width: 100%;
             filter: grayscale(1);
+
+            @media (max-width: 768px) {
+              width: 50%;
+            }
           }
         }
       }
@@ -58,6 +101,10 @@
       border-bottom: 1px solid $eqLightGrey;
       padding-bottom: 15px;
 
+      @media (max-width: 768px) {
+        display: none;
+      }
+
       img {
         width: 100%;
       }
@@ -68,6 +115,10 @@
     margin-top: 100vh;
     flex: 1;
     padding: 0 15px;
+
+    @media (max-width: 768px) {
+      margin-top: 0;
+    }
 
     > div:first-of-type {
       border-bottom: 1px solid $eqLightGrey;
@@ -86,9 +137,23 @@
 
     .section-content__wrapper {
       width: 60%;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
       p,
       a {
         margin-bottom: 1.25rem;
+      }
+
+      .image__wrapper--mobile {
+        display: none;
+
+        @media (max-width: 768px) {
+          display: block;
+          padding-top: 3rem;
+        }
       }
 
       .news-article-list {

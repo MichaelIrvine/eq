@@ -1,0 +1,10 @@
+// transition for filter applied to images
+img {
+  transition-property: -moz-filter, -ms-filter, -o-filter, -webkit-filter,
+    filter;
+  transition-duration: 700ms;
+}
+
+img.lazy {
+  filter: blur(1px);
+}

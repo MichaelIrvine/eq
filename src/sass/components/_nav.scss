@@ -5,8 +5,12 @@
       display: none;
     }
 
-    height: 8px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     span {
       display: block;
@@ -47,6 +51,21 @@
       }
 
       .menu-item-has-children {
+        @media (max-width: 768px) {
+          position: relative;
+          padding: 0 !important;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        > a {
+          @media (max-width: 768px) {
+            padding: 15px;
+            width: 100%;
+            border-bottom: 1px solid $eqLightGrey;
+          }
+        }
+
         &:hover {
           .sub-menu {
             visibility: visible;
@@ -73,14 +92,87 @@
           border-bottom: 1px solid $eqLightGrey;
           border-top: 8px solid $eqWhite;
 
+          @media (max-width: 768px) {
+            visibility: visible;
+            position: relative;
+            top: 0 !important;
+            padding: 0;
+            border-top: none;
+            border-bottom: none;
+            height: auto;
+            width: 100%;
+          }
+
           .menu-item {
+            @media (max-width: 768px) {
+              width: 100% !important;
+              border-bottom: none;
+            }
+
+            a {
+              @media (max-width: 768px) {
+                width: 100%;
+              }
+            }
             &::before {
               height: 100%;
+              @media (max-width: 768px) {
+                display: none;
+              }
             }
           }
         }
       }
     }
+
+    @media (max-width: 768px) {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      background-color: rgba($color: #aeaca9, $alpha: 0.7);
+      width: 100%;
+      // GSAP in navigation.js handles animating in the menu
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+
+      .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: $eqWhite;
+        // GSAP in navigation.js handles animating in the menu
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+
+        .menu-item {
+          width: 100%;
+          height: auto;
+          border-bottom: 1px solid $eqLightGrey;
+          padding: 15px;
+
+          &:before {
+            display: none;
+          }
+
+          a {
+            font-size: 16px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    padding-bottom: 9px;
+    align-items: flex-end;
+    justify-content: flex-end;
   }
 }
 
@@ -93,6 +185,13 @@
     .menu {
       .menu-item {
         border-bottom: 8px solid transparent;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          height: auto;
+          border-bottom: 1px solid #d6d3d0;
+          padding: 15px;
+        }
 
         &::before {
           background-color: transparent;

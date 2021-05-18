@@ -1,0 +1,9 @@
+.accordion__button {
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  transition: max-height 450ms ease-in-out, margin 450ms ease-in-out;
+}

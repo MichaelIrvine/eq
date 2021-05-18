@@ -35,21 +35,34 @@ get_header();
         <?php foreach ($case_studies as $case_study) :
             $permalink = get_permalink($case_study->ID);
             $title = get_the_title($case_study->ID);
+            $postCats = get_the_category($case_study->ID);
           ?>
         <li>
-
+          <span></span>
           <a href="<?php echo esc_url($permalink); ?>">
             <img src="<?php echo get_the_post_thumbnail_url($case_study->ID, "preload"); ?>"
               data-src="<?php echo get_the_post_thumbnail_url($case_study->ID, "full"); ?>" class="lazy"
               alt="<?php echo esc_html($title); ?>">
+          </a>
+          <div>
+            <ul class="post-category-list">
+              <?php foreach ($postCats as $postCat) : ?>
+              <?php if ($postCat->parent != 0) : ?>
+              <li>
+                <p class="light"><?php echo $postCat->name; ?></p>
+              </li>
 
-          </a>
-          <h4>Tags Here</h4>
-          <a href="<?php echo esc_url($permalink); ?>">
-            <h3><?php echo esc_html($title); ?></h3>
-          </a>
-          <p><?php echo get_the_excerpt($case_study->ID); ?></p>
+              <?php
+                    endif;
+                  endforeach; ?>
+            </ul>
+            <a href="<?php echo esc_url($permalink); ?>">
+              <h3><?php echo esc_html($title); ?></h3>
+            </a>
+            <p><?php echo get_the_excerpt($case_study->ID); ?></p>
+          </div>
         </li>
+
         <?php endforeach; ?>
       </ul>
       <?php endif; ?>

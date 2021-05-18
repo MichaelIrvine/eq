@@ -33,8 +33,8 @@ get_header();
       foreach ($categories as $cat) : ?>
 
       <li class="parent-category-item">
-        <p><?php echo $cat->name; ?></p>
-        <ul>
+        <a class="accordion__button" href="<?php home_url('projects'); ?>"><?php echo $cat->name; ?></a>
+        <ul class="accordion__content">
           <?php
             $subCategories = get_categories(
               array(
@@ -77,34 +77,31 @@ get_header();
     ?>
 
     <div class="article__wrapper">
+      <span></span>
       <div>
         <a href="<?= the_permalink(); ?>" class="feature-image-link">
-          <div class="aspect__wrapper _5x8">
-            <img src="<? echo get_the_post_thumbnail_url('','preload'); ?>"
-              data-src="<? echo get_the_post_thumbnail_url('','full');?>" alt="<?php echo the_title(); ?>" class="lazy">
-          </div>
+          <img src="<? echo get_the_post_thumbnail_url('', 'preload'); ?>"
+            data-src="<? echo get_the_post_thumbnail_url('', 'full'); ?>" alt="<?php echo the_title(); ?>" class="lazy">
         </a>
       </div>
       <div>
-        <p class="post-category">
-
-          <?php
-            $args = [
-              'child_of' => '10, 12'
-            ];
-
-            $postCats = get_the_category($args);
-            foreach ($postCats as $cat) : ?>
-        <p> <?php echo $cat->name; ?></p>
-
-        <?php endforeach; ?>
-        </p>
+        <?php
+          $postCats = get_the_category();
+          ?>
+        <ul class="post-category-list">
+          <?php foreach ($postCats as $postCat) : ?>
+          <?php if ($postCat->parent != 0) : ?>
+          <li>
+            <p class="light"><?php echo $postCat->name; ?></p>
+          </li>
+          <?php endif; ?>
+          <?php endforeach; ?>
+        </ul>
 
         <a href="<?= the_permalink(); ?>">
           <h3><?php the_title(); ?></h3>
         </a>
       </div>
-      <span></span>
     </div>
 
     <?php endwhile;

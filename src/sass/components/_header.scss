@@ -16,15 +16,21 @@ header#site-header {
     flex: 0.5;
     align-items: flex-end;
     padding-bottom: 7px;
-    #mainBranding {
-      @media (max-width: 1000px) {
-        display: none;
-      }
-    }
+
     #headerBrandingMobile {
-      @media (min-width: 1000px) {
-        display: none;
-      }
+      display: none;
+    }
+  }
+}
+
+header#site-header.is-scrolled {
+  #site-branding {
+    #mainBranding {
+      display: none;
+    }
+
+    #headerBrandingMobile {
+      display: block;
     }
   }
 }
@@ -40,4 +46,9 @@ header#site-header {
   right: 0;
   background-color: transparent;
   border-bottom: 1px solid transparent;
+}
+
+.home .site #site-header.nav-open {
+  background-color: $eqWhite;
+  border-bottom: 1px solid $eqLightGrey;
 }

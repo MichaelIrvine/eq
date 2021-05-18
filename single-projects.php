@@ -13,8 +13,8 @@ get_header();
 
 <main id="project-post" class="project-post-page site-main">
   <?php
-	while (have_posts()) :
-		the_post(); ?>
+  while (have_posts()) :
+    the_post(); ?>
 
   <section class="hero post-hero">
     <?php eq_post_thumbnail(); ?>
@@ -22,7 +22,6 @@ get_header();
   <section id="post-info" class="post-section flex__wrapper">
     <!-- Title Col -->
     <div class="post-title__col">
-      <h4>Tags</h4>
       <h1><?php echo the_title(); ?></h1>
     </div>
     <!-- Info Col -->
@@ -34,9 +33,9 @@ get_header();
         <?php if (have_rows('project_post_details')) : ?>
         <ul>
           <?php while (have_rows('project_post_details')) : the_row();
-								$detail_title = get_sub_field('detail_title');
-								$detail = get_sub_field('detail');
-							?>
+                $detail_title = get_sub_field('detail_title');
+                $detail = get_sub_field('detail');
+              ?>
           <li>
             <h4><?php echo $detail_title; ?></h4>
             <p><?php echo $detail; ?></p>
@@ -52,28 +51,28 @@ get_header();
   <!-- Flexible Content Starts -->
   <?php
 
-		if (have_rows('project_content')) :
-			while (have_rows('project_content')) : the_row();
+    if (have_rows('project_content')) :
+      while (have_rows('project_content')) : the_row();
 
-				if (get_row_layout() == 'section_title') :
+        if (get_row_layout() == 'section_title') :
 
-					get_template_part('template-parts/section', 'title');
+          get_template_part('template-parts/section', 'title');
 
-				elseif (get_row_layout() == 'gallery') :
+        elseif (get_row_layout() == 'gallery') :
 
-					get_template_part('template-parts/gallery');
+          get_template_part('template-parts/gallery');
 
-				elseif (get_row_layout() == 'content_columns') :
+        elseif (get_row_layout() == 'content_columns') :
 
-					get_template_part('template-parts/flexible', 'columns');
+          get_template_part('template-parts/flexible', 'columns');
 
-				endif;
+        endif;
 
-			endwhile;
-		endif;
+      endwhile;
+    endif;
 
-	endwhile; // End of the loop.
-	?>
+  endwhile; // End of the loop.
+  ?>
 </main>
 <?php
 get_template_part('template-parts/related', 'posts');

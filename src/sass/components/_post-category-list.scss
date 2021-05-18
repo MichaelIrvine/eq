@@ -1,0 +1,16 @@
+.post-category-list {
+  margin: 8px 0;
+  display: flex;
+
+  li {
+    display: flex;
+  }
+
+  li p:after {
+    content: ', ';
+    margin-right: 4px;
+  }
+  li:last-of-type p::after {
+    content: '';
+  }
+}

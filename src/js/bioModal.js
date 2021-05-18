@@ -11,8 +11,6 @@ const bioModal = () => {
       const bioPanel = bioToOpen.querySelector('.bio-panel');
       const bioCloseBtn = bioToOpen.querySelector('.panel-close');
 
-      console.log(bioCloseBtn);
-
       bioTl
         .to(document.body, { duration: 0, overflow: 'hidden' })
         .to(bioToOpen, { duration: 0, height: '100vh', pointerEvents: 'all' })

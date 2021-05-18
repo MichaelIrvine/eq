@@ -22,19 +22,19 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('transparent-header'); ?>>
+<body <?php body_class('transparent-header js-loading'); ?>>
   <?php wp_body_open(); ?>
   <div id="page" class="site">
     <header id="site-header">
       <div id="site-branding">
         <?php
-				if (is_active_sidebar('header-branding')) : ?>
+        if (is_active_sidebar('header-branding')) : ?>
         <?php dynamic_sidebar('header-branding'); ?>
         <?php endif;
-				if (is_active_sidebar('header-branding-mobile')) : ?>
+        if (is_active_sidebar('header-branding-mobile')) : ?>
         <?php dynamic_sidebar('header-branding-mobile'); ?>
         <?php endif;
-				?>
+        ?>
       </div>
       <nav id="site-navigation" class="main-navigation">
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
@@ -42,12 +42,12 @@
           <span></span>
         </button>
         <?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
-      </nav><!-- #site-navigation -->
-    </header><!-- #masthead -->
+        wp_nav_menu(
+          array(
+            'theme_location' => 'menu-1',
+            'menu_id'        => 'primary-menu',
+          )
+        );
+        ?>
+      </nav>
+    </header>
