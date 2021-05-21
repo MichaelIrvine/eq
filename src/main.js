@@ -14,6 +14,7 @@ import heroAnim from './js/heroAnim';
 import navigation from './js/navigation';
 import flexibleColumns from './js/flexColumns';
 import staggerAnim from './js/staggerAnim';
+import frontPageScroll from './js/frontPageScroll';
 
 // Globals
 lazyLoad();
@@ -25,6 +26,7 @@ headerScroll();
 // Page Level
 if (document.body.classList.contains('home')) {
   heroAnim();
+  frontPageScroll();
 }
 if (document.body.classList.contains('page-about')) {
   bioModal();

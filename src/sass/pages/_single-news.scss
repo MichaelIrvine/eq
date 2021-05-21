@@ -4,15 +4,32 @@
   border-top: 1px solid $eqLightGrey;
   position: relative;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
   .entry-header {
     height: 100vh;
     position: sticky;
     top: 100px;
+
+    @media (max-width: 768px) {
+      top: 0;
+      height: auto;
+      position: relative;
+      padding-bottom: 30px;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid $eqLightGrey;
+    }
   }
 
   .entry-content {
     padding-left: 10px;
     border-left: 1px solid $eqLightGrey;
+
+    @media (max-width: 768px) {
+      border-left: 0;
+      padding-left: 0;
+    }
 
     > * {
       margin-bottom: 1rem;

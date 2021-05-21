@@ -67,11 +67,9 @@ get_header();
       <div class="featured-post-image__wrapper">
         <?php
         $featuredImage = get_field('featured_article_image');
-        $preloadImage = $featuredImage['sizes']['preload'];
         if (!empty($featuredImage)) : ?>
 
-        <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($featuredImage['url']); ?>"
-          class="lazy" alt="<?php echo esc_attr($featuredImage['alt']); ?>" />
+        <img src="<?php echo esc_url($featuredImage['url']); ?>" alt="<?php echo esc_attr($featuredImage['alt']); ?>" />
         <?php endif; ?>
 
       </div>

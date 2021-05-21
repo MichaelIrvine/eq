@@ -24,6 +24,7 @@
   }
 
   .hero-img__wrapper {
+    z-index: 10;
     img {
       min-height: 100vh;
       min-width: 100%;
@@ -39,15 +40,17 @@
   flex-direction: row-reverse;
   margin-top: 8px;
   margin-bottom: 15px;
+  position: relative;
+  z-index: -1;
 
   @media (max-width: 768px) {
     flex-direction: column;
   }
 
   #front-page__col-01 {
-    border-left: 1px solid $eqLightGrey;
-    padding: 0 15px;
     flex: 1;
+    padding: 0 15px;
+    border-left: 1px solid $eqLightGrey;
 
     > div {
       margin-bottom: 15px;
@@ -93,6 +96,12 @@
       .featured-content__wrapper {
         .featured-post-text__wrapper {
           display: none;
+          opacity: 0;
+
+          p,
+          a {
+            margin-bottom: 1.25rem;
+          }
         }
       }
     }

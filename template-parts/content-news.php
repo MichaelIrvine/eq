@@ -55,9 +55,7 @@
 				)
 			);
 			?>
-      <footer class="entry-footer">
-        <?php eq_entry_footer(); ?>
-      </footer>
+
       <?php the_post_navigation(
 				array(
 					'prev_text' => '<span class="nav-subtitle">' . esc_html__('Previous:', 'eq') . '</span> <span class="nav-title">%title</span>',
