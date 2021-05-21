@@ -37,7 +37,7 @@ get_header();
             $title = get_the_title($case_study->ID);
             $postCats = get_the_category($case_study->ID);
           ?>
-        <li>
+        <li class="staggered">
           <span></span>
           <a href="<?php echo esc_url($permalink); ?>">
             <img src="<?php echo get_the_post_thumbnail_url($case_study->ID, "preload"); ?>"

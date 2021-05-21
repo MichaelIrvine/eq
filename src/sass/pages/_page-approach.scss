@@ -1,5 +1,11 @@
 .page__approach {
   #approach-heading {
+    max-height: calc(100vh - 70px);
+
+    @media (max-width: 768px) {
+      max-height: 100%;
+    }
+
     > div {
       flex: 1;
       min-height: calc(100vh - 70px);

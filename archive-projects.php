@@ -76,7 +76,7 @@ get_header();
 
     ?>
 
-    <div class="article__wrapper">
+    <div class="article__wrapper staggered">
       <span></span>
       <div>
         <a href="<?= the_permalink(); ?>" class="feature-image-link">

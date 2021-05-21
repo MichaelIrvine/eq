@@ -5,6 +5,13 @@
     border-bottom: 1px solid $eqLightGrey;
     padding-bottom: 15px;
     margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeIn 500ms ease 1s forwards;
+
+    .current-active-category {
+      text-decoration: underline;
+    }
   }
 
   .filtered-articles {
@@ -98,5 +105,18 @@
         display: block;
       }
     }
+
+    .article__wrapper:last-of-type {
+      margin-right: 0;
+      padding-right: 0;
+      border-right: 1px solid transparent;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

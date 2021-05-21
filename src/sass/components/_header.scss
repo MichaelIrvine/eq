@@ -40,15 +40,23 @@ header#site-header.is-scrolled {
 //
 
 .home.transparent-header header#site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   background-color: transparent;
   border-bottom: 1px solid transparent;
+}
+
+.home #site-header {
+  opacity: 0;
+  animation: headerFadesIn 600ms ease-in 1600ms forwards;
 }
 
 .home .site #site-header.nav-open {
   background-color: $eqWhite;
   border-bottom: 1px solid $eqLightGrey;
+}
+
+@keyframes headerFadesIn {
+  to {
+    opacity: 1;
+    top: 0;
+  }
 }

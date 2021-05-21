@@ -12,13 +12,15 @@ import lazyLoad from './js/lazyLoad';
 import accordion from './js/accordion';
 import heroAnim from './js/heroAnim';
 import navigation from './js/navigation';
-import flexibleColumns from './js/_flex-columns';
+import flexibleColumns from './js/flexColumns';
+import staggerAnim from './js/staggerAnim';
 
 // Globals
+lazyLoad();
 navigation();
+staggerAnim();
 dropDownNav();
 headerScroll();
-lazyLoad();
 
 // Page Level
 if (document.body.classList.contains('home')) {

@@ -1,0 +1,21 @@
+#article-content {
+  margin: 15px;
+  padding: 30px 0;
+  border-top: 1px solid $eqLightGrey;
+  position: relative;
+
+  .entry-header {
+    height: 100vh;
+    position: sticky;
+    top: 100px;
+  }
+
+  .entry-content {
+    padding-left: 10px;
+    border-left: 1px solid $eqLightGrey;
+
+    > * {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@mixin aniMixin($name) {
+  @keyframes #{name} {
+    to {
+      opacity: 0;
+      transform: translateY(0);
+    }
+  }
+}

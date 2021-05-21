@@ -21,11 +21,10 @@ function filter_ajax()
 ?>
 
 <div class="article__wrapper">
+  <span></span>
   <div>
     <a href="<?= the_permalink(); ?>" class="feature-image-link">
-      <div class="aspect__wrapper _5x8">
-        <img src="<? echo get_the_post_thumbnail_url('', 'full'); ?>" alt="<?php echo the_title(); ?>">
-      </div>
+      <img src="<? echo get_the_post_thumbnail_url('', 'full'); ?>" alt="<?php echo the_title(); ?>">
     </a>
   </div>
   <div>
@@ -46,7 +45,6 @@ function filter_ajax()
       <h3><?php the_title(); ?></h3>
     </a>
   </div>
-  <span></span>
 </div>
 
 <?php endwhile;
