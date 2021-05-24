@@ -23,13 +23,13 @@ get_header();
     <?php
     $contactDetails = get_field('contact_details');
     if ($contactDetails) : ?>
-    <div>
+    <div class="staggered">
       <h4><?php echo $contactDetails['contact_details_title']; ?> </h4>
       <?php echo $contactDetails['contact_details']; ?>
     </div>
     <?php endif; ?>
 
-    <div>
+    <div class="staggered">
       <?php
       $careersDetails = get_field('careers_details');
       if ($contactDetails) : ?>
@@ -57,7 +57,7 @@ get_header();
       <?php endif; ?>
     </div>
 
-    <div>
+    <div class="staggered">
       <?php echo the_field('contact_form'); ?>
     </div>
   </section>

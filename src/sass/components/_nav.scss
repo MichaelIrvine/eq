@@ -1,14 +1,15 @@
 #site-navigation {
   flex: 1;
   .menu-toggle {
-    @media (min-width: 768px) {
-      display: none;
+    display: none;
+    @media (max-width: 768px) {
+      display: flex;
     }
 
     height: 30px;
     width: 30px;
     padding: 5px;
-    display: flex;
+
     flex-direction: column;
     justify-content: space-around;
 
@@ -58,13 +59,15 @@
           padding: 0 !important;
           flex-direction: column;
           align-items: flex-start;
+          padding: 0;
+          // margin: 15px 0;
         }
 
         > a {
           @media (max-width: 768px) {
-            padding: 15px;
             width: 100%;
-            border-bottom: 1px solid $eqLightGrey;
+            // border-bottom: 1px solid $eqLightGrey;
+            margin: 15px;
           }
         }
 
@@ -98,7 +101,7 @@
             position: relative;
             top: 0 !important;
             padding: 0;
-            border-top: none;
+            border-top: 1px solid $eqLightGrey;
             border-bottom: none;
             height: auto;
             width: 100%;
@@ -168,6 +171,10 @@
         }
       }
     }
+
+    @media (max-width: 500px) {
+      top: 50px;
+    }
   }
 
   @media (max-width: 768px) {
@@ -190,7 +197,7 @@
         @media (max-width: 768px) {
           width: 100%;
           height: auto;
-          border-bottom: 1px solid #d6d3d0;
+          border-bottom: 1px solid $eqLightGrey;
           padding: 15px;
         }
 
@@ -211,6 +218,10 @@
           background-color: transparent;
           border-top-color: transparent;
           border-bottom-color: transparent;
+
+          @media (max-width: 768px) {
+            border-top: 1px solid $eqLightGrey;
+          }
 
           .menu-item {
             &::before {

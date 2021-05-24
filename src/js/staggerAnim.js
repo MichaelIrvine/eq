@@ -20,8 +20,6 @@ const staggerAnim = () => {
     setTimeout(() => {
       staggerTl.play();
     }, 1000);
-  } else {
-    console.log('no staggy');
   }
 };
 

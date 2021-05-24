@@ -94,17 +94,21 @@ section#contactDetails {
           border-radius: 0;
           box-shadow: none;
           border-color: white;
+          appearance: none;
         }
         textarea {
           border-radius: 0;
           box-shadow: none;
           border-color: white;
           resize: none;
+          appearance: none;
         }
 
         // Padding adjustment for Tablet media query from plugin css
         .vfb-col-6 {
-          padding: 0;
+          @media (max-width: 768px) {
+            padding: 0;
+          }
         }
       }
 

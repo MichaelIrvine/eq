@@ -4,6 +4,10 @@ body {
   background-color: $eqWhite;
   position: relative;
   margin-top: 70px;
+
+  @media (max-width: 500px) {
+    margin-top: 50px;
+  }
 }
 
 body.home {

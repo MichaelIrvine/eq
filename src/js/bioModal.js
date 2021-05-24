@@ -13,12 +13,20 @@ const bioModal = () => {
 
       bioTl
         .to(document.body, { duration: 0, overflow: 'hidden' })
-        .to(bioToOpen, { duration: 0, height: '100vh', pointerEvents: 'all' })
+        .to(bioToOpen, {
+          duration: 0,
+          height: 'auto',
+          minHeight: '100vh',
+          pointerEvents: 'all',
+          overflow: 'scroll',
+        })
         .to(bioPanel, {
           duration: 0,
-          height: '100vh',
+          height: 'auto',
+          minHeight: '100vh',
           pointerEvents: 'all',
-          padding: 30,
+          overflow: 'scroll',
+          padding: 15,
         })
         .to(bioToOpen, {
           delay: 0.25,

@@ -27,14 +27,14 @@ get_header();
       $preloadImage = $aboutImage['sizes']['preloadHalfHero'];
   ?>
   <section id="about-heading" class="flex__wrapper">
-    <div>
+    <div class="staggered">
       <?php
           if (!empty($aboutImage)) : ?>
       <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($aboutImage['url']); ?>"
         class="lazy" alt="<?php echo esc_attr($aboutImage['alt']); ?>" />
       <?php endif; ?>
     </div>
-    <div class="flex__wrapper content-editor__reset">
+    <div class="flex__wrapper content-editor__reset staggered">
       <h1><?php echo $aboutTitle; ?></h1>
       <div class="content-editor__reset">
         <?php echo $aboutContent; ?>
@@ -77,13 +77,16 @@ get_header();
       <div class="flex__wrapper">
         <div class="member-img__wrapper">
           <?php
-              echo wp_get_attachment_image($memberPic, 'full');
+              echo wp_get_attachment_image($memberPic, 'teamImgGrid');
               ?>
         </div>
-        <div class="member-info__wrapper">
-          <p><?php echo $memberName; ?></p>
-          <p><?php echo $memberEdu; ?></p>
-          <p class="light"><?php echo $memberTitle; ?></p>
+        <div class="member-info__wrapper flex__wrapper">
+          <div>
+            <p><?php echo $memberName; ?></p>
+            <p><?php echo $memberEdu; ?></p>
+            <p class="light"><?php echo $memberTitle; ?></p>
+          </div>
+
           <button class="btn--team-bio" data-id="<?php the_ID(); ?>"
             data-team-member="<?php echo sanitize_title($memberName); ?>">Read
             Bio</button>

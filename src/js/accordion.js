@@ -19,7 +19,6 @@ const accordion = () => {
       const accordionContent = button.nextElementSibling;
       if (button.classList.contains('active')) {
         accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
-        // accordionContent.style.marginTop = '0.5rem';
         accordionContent.style.paddingLeft = '0.5rem';
       } else {
         accordionContent.style.maxHeight = 0;

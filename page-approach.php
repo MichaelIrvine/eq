@@ -27,12 +27,12 @@ get_header();
       $preloadImage = $apImage['sizes']['preloadHalfHero'];
   ?>
   <section id="approach-heading" class="flex__wrapper">
-    <div class="flex__wrapper">
+    <div class="flex__wrapper staggered">
       <div class="content__wrapper">
         <?php echo $apContent; ?>
       </div>
     </div>
-    <div>
+    <div class="staggered">
       <?php
           if (!empty($apImage)) : ?>
       <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($apImage['url']); ?>" class="lazy"

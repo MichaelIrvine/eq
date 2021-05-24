@@ -13,19 +13,17 @@
         $('.article__wrapper').fadeOut();
       });
 
-      setTimeout(() => {
-        $.ajax({
-          url: wpAjax.ajaxUrl,
-          data: { action: 'filter', category: data },
-          type: 'POST',
-          success: function (result) {
-            $('.filtered-articles').html(result);
-          },
-          error: function (result) {
-            $('.filtered-articles').html(result);
-          },
-        });
-      }, 5000);
+      $.ajax({
+        url: wpAjax.ajaxUrl,
+        data: { action: 'filter', category: data },
+        type: 'POST',
+        success: function (result) {
+          $('.filtered-articles').html(result);
+        },
+        error: function (result) {
+          $('.filtered-articles').html(result);
+        },
+      });
     });
   });
 })(jQuery);

@@ -17,9 +17,23 @@ header#site-header {
     align-items: flex-end;
     padding-bottom: 7px;
 
+    #mainBranding {
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
+
     #headerBrandingMobile {
       display: none;
+
+      @media (max-width: 500px) {
+        display: block;
+      }
     }
+  }
+
+  @media (max-width: 500px) {
+    height: 50px;
   }
 }
 

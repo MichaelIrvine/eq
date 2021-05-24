@@ -10,6 +10,10 @@
   padding: 30px;
 }
 
+.home #page {
+  overflow: hidden;
+}
+
 #front-page-hero {
   position: relative;
   .screen-reveal {
@@ -41,7 +45,7 @@
   margin-top: 8px;
   margin-bottom: 15px;
   position: relative;
-  z-index: -1;
+  overflow: hidden;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -60,6 +64,7 @@
       border-bottom: 1px solid $eqLightGrey;
       padding-bottom: 15px;
       min-height: 60vh;
+      max-height: 60vh;
       grid-template-columns: 1.5fr 1fr;
       grid-gap: 80px;
 
@@ -121,12 +126,12 @@
   }
 
   #front-page__col-02 {
-    margin-top: 100vh;
     flex: 1;
     padding: 0 15px;
+    margin-top: 100vh;
 
     @media (max-width: 768px) {
-      margin-top: 0;
+      margin-top: 0 !important;
     }
 
     > div:first-of-type {
@@ -137,7 +142,6 @@
     > div:last-of-type {
       border-bottom: 1px solid $eqLightGrey;
       min-height: 60vh;
-      // margin-bottom: 15px;
     }
 
     .section-title__wrapper {

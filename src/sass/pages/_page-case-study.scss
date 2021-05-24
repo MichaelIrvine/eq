@@ -9,15 +9,16 @@
 
     > div:first-of-type {
       flex: 0.5;
-      padding-right: 1px;
-      padding-left: 15px;
       position: sticky;
-      top: 115px;
-      height: 100vh;
+      top: 105px;
+      height: 100%;
       opacity: 0;
       transform: translateY(5px);
       animation: fadeIn 800ms ease-in-out 800ms forwards;
 
+      @media (max-width: 930px) {
+        flex: 0.525;
+      }
       @media (max-width: 800px) {
         top: 0;
         width: 60%;
@@ -32,8 +33,13 @@
       }
 
       p {
-        margin-bottom: 1rem;
-        padding-right: 15px;
+        margin: 0 15px 15px;
+
+        span {
+          @media (max-width: 800px) {
+            display: none;
+          }
+        }
       }
     }
     > div:last-of-type {
@@ -42,13 +48,22 @@
   }
 
   .case-studies__wrapper {
-    padding-left: 15px;
-    border-left: 1px solid $eqLightGrey;
+    margin-left: 8px;
     opacity: 0;
     animation: fadeIn 500ms ease 1s forwards;
 
+    @media (max-width: 930px) {
+      border-left: 1px solid $eqLightGrey;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @media (max-width: 800px) {
+      margin-left: 0;
+      border-left: 0;
+    }
+
     .grid__wrapper {
-      gap: 1rem;
       row-gap: 0;
 
       @media (max-width: 930px) {
@@ -56,13 +71,19 @@
       }
 
       > li {
-        @media (max-width: 930px) {
-          display: grid;
-          grid-template-columns: 1fr 1.5fr;
-          gap: 15px;
-          margin-bottom: 60px;
-          padding-bottom: 60px;
-          border-bottom: 1px solid $eqLightGrey;
+        .inner__wrapper {
+          @media (max-width: 930px) {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid $eqLightGrey;
+          }
+
+          @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+          }
         }
 
         span {
@@ -105,11 +126,35 @@
 
       > li:nth-of-type(odd) {
         border-right: 1px solid $eqLightGrey;
-        padding-right: 15px;
+        border-left: 1px solid $eqLightGrey;
+        margin-right: 6.5px;
+
+        @media (max-width: 930px) {
+          border-right: 0;
+          border-left: 0;
+        }
+
+        .inner__wrapper {
+          padding-left: 10px;
+          padding-right: 10px;
+
+          @media (max-width: 930px) {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
       }
       > li:nth-of-type(even) {
         border-right: 0;
-        padding-right: 15px;
+        .inner__wrapper {
+          padding-left: 5px;
+          padding-right: 10px;
+
+          @media (max-width: 930px) {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
       }
 
       > li:first-of-type span {

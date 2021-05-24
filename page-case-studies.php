@@ -38,28 +38,30 @@ get_header();
             $postCats = get_the_category($case_study->ID);
           ?>
         <li class="staggered">
-          <span></span>
-          <a href="<?php echo esc_url($permalink); ?>">
-            <img src="<?php echo get_the_post_thumbnail_url($case_study->ID, "preload"); ?>"
-              data-src="<?php echo get_the_post_thumbnail_url($case_study->ID, "full"); ?>" class="lazy"
-              alt="<?php echo esc_html($title); ?>">
-          </a>
-          <div>
-            <ul class="post-category-list">
-              <?php foreach ($postCats as $postCat) : ?>
-              <?php if ($postCat->parent != 0) : ?>
-              <li>
-                <p class="light"><?php echo $postCat->name; ?></p>
-              </li>
-
-              <?php
-                    endif;
-                  endforeach; ?>
-            </ul>
+          <div class="inner__wrapper">
+            <span></span>
             <a href="<?php echo esc_url($permalink); ?>">
-              <h3><?php echo esc_html($title); ?></h3>
+              <img src="<?php echo get_the_post_thumbnail_url($case_study->ID, "preload"); ?>"
+                data-src="<?php echo get_the_post_thumbnail_url($case_study->ID, "full"); ?>" class="lazy"
+                alt="<?php echo esc_html($title); ?>">
             </a>
-            <p><?php echo get_the_excerpt($case_study->ID); ?></p>
+            <div>
+              <ul class="post-category-list">
+                <?php foreach ($postCats as $postCat) : ?>
+                <?php if ($postCat->parent != 0) : ?>
+                <li>
+                  <p class="light"><?php echo $postCat->name; ?></p>
+                </li>
+
+                <?php
+                      endif;
+                    endforeach; ?>
+              </ul>
+              <a href="<?php echo esc_url($permalink); ?>">
+                <h3><?php echo esc_html($title); ?></h3>
+              </a>
+              <p><?php echo get_the_excerpt($case_study->ID); ?></p>
+            </div>
           </div>
         </li>
 

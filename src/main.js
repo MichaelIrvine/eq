@@ -1,6 +1,5 @@
 import './sass/style.scss';
-
-import { gsap, Power2 } from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,10 +23,58 @@ dropDownNav();
 headerScroll();
 
 // Page Level
+
 if (document.body.classList.contains('home')) {
   heroAnim();
-  frontPageScroll();
+
+  window.addEventListener('DOMContentLoaded', () => {
+    ScrollTrigger.matchMedia({
+      '(min-width: 1200px)': () => {
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: '.featured-post__wrapper',
+              start: 'bottom+=15px bottom',
+              endTrigger: '#section-news',
+              end: 'bottom bottom+=15px',
+              scrub: 2,
+              pin: '.site-main',
+              pinSpacing: false,
+              ease: 'power1',
+              anticipatePin: 1,
+              markers: false,
+              invalidateOnRefresh: true,
+            },
+          })
+          .to('.featured-post-details__wrapper', {
+            autoAlpha: 0,
+            duration: 0.25,
+          })
+          .to('.featured-post-text__wrapper', { display: 'block', duration: 0 })
+          .to('.featured-post-text__wrapper', { autoAlpha: 1, duration: 0.5 })
+          .to('#front-page__col-02', { marginTop: '0vh' })
+          .to('#front-page__col-01', {
+            y: () => {
+              return `-${
+                document.querySelector('.featured-post-image__wrapper')
+                  .clientHeight + 15
+              }px`;
+            },
+          })
+          .to('#front-page__col-02', {
+            y: () => {
+              return `-${
+                document.querySelector('#section-news').clientHeight + 15
+              }px`;
+            },
+          });
+
+        window.addEventListener('resize', ScrollTrigger.refresh());
+      },
+    });
+  });
 }
+
 if (document.body.classList.contains('page-about')) {
   bioModal();
 }

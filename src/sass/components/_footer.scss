@@ -10,13 +10,35 @@
 
 #eqFooter {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 20px 15px;
   min-height: 225px;
   background-color: $eqDarkGrey;
+  position: relative;
+  z-index: 1;
 
   .footer__col {
     width: 25%;
     padding-right: 25px;
+  }
+
+  @media (min-width: 1100px) {
+    .footer__col {
+      width: 16.6666%;
+      padding-right: 25px;
+    }
+
+    .footer__col:first-of-type {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .footer__col {
+      width: 50%;
+      margin-bottom: 1rem;
+    }
   }
 }
