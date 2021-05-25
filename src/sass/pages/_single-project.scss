@@ -39,13 +39,10 @@
       }
 
       div:first-of-type {
-        width: 80%;
+        width: 100%;
 
         @media (max-width: 560px) {
           margin-bottom: 2.5rem;
-        }
-        p {
-          width: 80%;
         }
       }
       div:last-of-type {
