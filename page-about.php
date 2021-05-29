@@ -51,6 +51,7 @@ get_header();
   $args = array(
     'post_type' => 'team',
     'posts_per_page' => -1,
+	'order' => 'DESC',
   );
 
   $the_query = new WP_Query($args);

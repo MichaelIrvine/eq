@@ -336,3 +336,12 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+/**
+ * Responsive iframes
+ */
+function iframe_embed_html( $html ) {
+    return '<div class="videowrapper">' . $html . '</div>';
+} 
+add_filter( 'embed_oembed_html', 'iframe_embed_html', 10, 3 );
+add_filter( 'video_embed_html', 'iframe_embed_html' ); // Jetpack

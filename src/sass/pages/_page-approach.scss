@@ -1,7 +1,10 @@
 .page__approach {
   #approach-heading {
     max-height: calc(100vh - 70px);
-    min-height: 600px;
+
+    // Temp heading content fix
+    // min-height: 600px;
+    min-height: 880px;
 
     @media (max-width: 768px) {
       max-height: 100%;

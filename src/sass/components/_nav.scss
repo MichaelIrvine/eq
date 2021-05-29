@@ -50,6 +50,10 @@
         a {
           font-size: 13px;
           color: $eqBlack;
+
+          &:hover {
+            color: $eqBlue;
+          }
         }
       }
 

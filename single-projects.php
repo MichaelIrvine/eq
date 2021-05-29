@@ -17,7 +17,13 @@ get_header();
     the_post(); ?>
 
   <section class="hero post-hero">
-    <?php eq_post_thumbnail(); ?>
+    <?php
+      $preload = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'preload')[0];
+      $postThumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full')[0];
+
+      ?>
+    <img src="<?php echo $preload; ?>" data-src="<?php echo $postThumbnail; ?>" class="lazy staggered"
+      alt="<?php echo the_title(); ?>" />
   </section>
   <section id="post-info" class="post-section flex__wrapper">
     <!-- Title Col -->
@@ -48,6 +54,9 @@ get_header();
     </div>
 
   </section>
+  <div class="project-heading">
+    <h4><?php echo the_field('project_heading'); ?></h4>
+  </div>
   <!-- Flexible Content Starts -->
   <?php
 
@@ -65,6 +74,18 @@ get_header();
         elseif (get_row_layout() == 'content_columns') :
 
           get_template_part('template-parts/flexible', 'columns');
+
+        elseif (get_row_layout() == 'two_content_columns') :
+
+          get_template_part('template-parts/flexible', 'two-columns');
+
+        elseif (get_row_layout() == 'one_third__two_third_content_column') :
+
+          get_template_part('template-parts/flexible', 'one-third-two-third-columns');
+
+        elseif (get_row_layout() == 'two_third__one_third_content_column') :
+
+          get_template_part('template-parts/flexible', 'two-third-one-third-columns');
 
         endif;
 

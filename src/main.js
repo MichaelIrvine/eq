@@ -13,7 +13,6 @@ import heroAnim from './js/heroAnim';
 import navigation from './js/navigation';
 import flexibleColumns from './js/flexColumns';
 import staggerAnim from './js/staggerAnim';
-import frontPageScroll from './js/frontPageScroll';
 
 // Globals
 lazyLoad();
@@ -27,6 +26,12 @@ headerScroll();
 if (document.body.classList.contains('home')) {
   heroAnim();
 
+  const fpHero = document.querySelector('#front-page-hero');
+  const fpContent = document.querySelector('#front-page-content__wrapper');
+
+  console.log({ fpHero });
+  console.log({ fpContent });
+
   window.addEventListener('DOMContentLoaded', () => {
     ScrollTrigger.matchMedia({
       '(min-width: 1200px)': () => {
@@ -36,7 +41,7 @@ if (document.body.classList.contains('home')) {
               trigger: '.featured-post__wrapper',
               start: 'bottom+=15px bottom',
               endTrigger: '#section-news',
-              end: 'bottom bottom+=15px',
+              end: 'bottom-=80px bottom',
               scrub: 2,
               pin: '.site-main',
               pinSpacing: false,
@@ -46,25 +51,28 @@ if (document.body.classList.contains('home')) {
               invalidateOnRefresh: true,
             },
           })
-          .to('.featured-post-details__wrapper', {
-            autoAlpha: 0,
-            duration: 0.25,
-          })
-          .to('.featured-post-text__wrapper', { display: 'block', duration: 0 })
-          .to('.featured-post-text__wrapper', { autoAlpha: 1, duration: 0.5 })
-          .to('#front-page__col-02', { marginTop: '0vh' })
+          .to('#front-page__col-02', { marginTop: '2vh' })
           .to('#front-page__col-01', {
             y: () => {
               return `-${
-                document.querySelector('.featured-post-image__wrapper')
-                  .clientHeight + 15
+                document.querySelector('.featured-post__wrapper').clientHeight -
+                10
               }px`;
+            },
+          })
+          .to('#front-page-content__wrapper', {
+            y: () => {
+              return `-${
+                window.innerHeight -
+                document.querySelector('.featured-post__wrapper').clientHeight -
+                75
+              }`;
             },
           })
           .to('#front-page__col-02', {
             y: () => {
               return `-${
-                document.querySelector('#section-news').clientHeight + 15
+                document.querySelector('#section-news').clientHeight
               }px`;
             },
           });
