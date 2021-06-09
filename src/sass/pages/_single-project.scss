@@ -5,6 +5,10 @@
     max-height: calc(100vh - 70px);
     min-height: calc(100vh - 70px);
 
+    @media (max-width: 1130px) {
+      min-height: auto;
+    }
+
     img {
       height: 100%;
       object-fit: cover;

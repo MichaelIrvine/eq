@@ -19,68 +19,71 @@ lazyLoad();
 navigation();
 staggerAnim();
 dropDownNav();
-headerScroll();
 
-// Page Level
-
+// Page Specific
 if (document.body.classList.contains('home')) {
+  headerScroll();
   heroAnim();
 
-  const fpHero = document.querySelector('#front-page-hero');
-  const fpContent = document.querySelector('#front-page-content__wrapper');
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   // Element Variables
+  //   const body = document.body;
+  //   const footer = document.querySelector('#eqFooter');
+  //   const pinWrapper = document.querySelector('.pin__wrapper');
+  //   const siteMain = document.querySelector('.site-main');
+  //   const colOne = document.querySelector('#front-page__col-01');
+  //   const colTwo = document.querySelector('#front-page__col-02');
+  //   const colOneFeaturedPost = colOne.querySelector('.featured-post__wrapper');
 
-  console.log({ fpHero });
-  console.log({ fpContent });
+  //   // variables for scroll points
+  //   let scrollPointFirst = colOneFeaturedPost.offsetHeight;
+  //   let scrollPointSecond = colTwo;
+  //   let scrollPointThird;
+  //   let scrollPointFourth;
 
-  window.addEventListener('DOMContentLoaded', () => {
-    ScrollTrigger.matchMedia({
-      '(min-width: 1200px)': () => {
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: '.featured-post__wrapper',
-              start: 'bottom+=15px bottom',
-              endTrigger: '#section-news',
-              end: 'bottom-=80px bottom',
-              scrub: 2,
-              pin: '.site-main',
-              pinSpacing: false,
-              ease: 'power1',
-              anticipatePin: 1,
-              markers: false,
-              invalidateOnRefresh: true,
-            },
-          })
-          .to('#front-page__col-02', { marginTop: '2vh' })
-          .to('#front-page__col-01', {
-            y: () => {
-              return `-${
-                document.querySelector('.featured-post__wrapper').clientHeight -
-                10
-              }px`;
-            },
-          })
-          .to('#front-page-content__wrapper', {
-            y: () => {
-              return `-${
-                window.innerHeight -
-                document.querySelector('.featured-post__wrapper').clientHeight -
-                75
-              }`;
-            },
-          })
-          .to('#front-page__col-02', {
-            y: () => {
-              return `-${
-                document.querySelector('#section-news').clientHeight
-              }px`;
-            },
-          });
+  //   // set height for pin wrapper
+  //   pinWrapper.style.height = `${
+  //     siteMain.offsetHeight + footer.offsetHeight
+  //   }px`;
 
-        window.addEventListener('resize', ScrollTrigger.refresh());
-      },
-    });
-  });
+  //   function pinEl(el) {
+  //     el.classList.add('pinned');
+  //   }
+
+  //   function unpinEl(el) {
+  //     // Remove pin
+  //     el.classList.remove('pinned');
+  //     // Reset value to zero
+  //     // el.style.top = 0;
+  //   }
+
+  //   function scroller() {
+  //     if (window.scrollY >= scrollPointFirst) {
+  //       console.log('fire first');
+  //       // First Scroll Point fires
+  //       // Site becomes fixed
+  //       pinEl(siteMain);
+
+  //       // Column 2 moves up
+  //       //  **** Second Scroll Point Takes Over ****
+  //     }
+  //     // if (sY === scrollPointSecond) {
+  //     //   // Undo Site Main fixed position
+  //     // }
+  //   }
+
+  //   // Function to update values on screen resize
+  //   function updateScrollPointValues() {
+  //     scrollPointFirst;
+  //     scrollPointSecond;
+  //     scrollPointThird;
+  //     scrollPointFourth;
+  //   }
+
+  //   window.addEventListener('resize', updateScrollPointValues);
+
+  //   window.addEventListener('scroll', scroller);
+  // });
 }
 
 if (document.body.classList.contains('page-about')) {
