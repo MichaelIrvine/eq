@@ -28,6 +28,10 @@
       @media (max-width: 1000px) {
         margin-bottom: 2.5rem;
       }
+
+      @media (max-width: 560px) {
+        width: 100%;
+      }
     }
     .post-info__col {
       width: 50%;

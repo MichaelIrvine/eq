@@ -20,8 +20,8 @@ get_header();
   <div class="flex__wrapper">
     <div class="content__wrapper">
       <?php echo the_field('case_studies_text'); ?>
-      <p>Scroll to explore our selected case studies <span><svg width="13" height="8" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+      <p>Scroll to take a deeper dive into some of the work involved in our selected case study projects <span><svg
+            width="13" height="8" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M12.354 4.354a.5.5 0 000-.708L9.172.464a.5.5 0 10-.708.708L11.293 4 8.464 6.828a.5.5 0 10.708.708l3.182-3.182zM0 4.5h12v-1H0v1z"
               fill="#8F8E8B" />

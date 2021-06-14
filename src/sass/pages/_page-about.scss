@@ -1,5 +1,6 @@
 .page__about {
-  #about-heading {
+  .about-content {
+    margin-bottom: 2.5rem;
     > div {
       min-height: calc(100vh - 70px);
       @media (max-width: 920px) {
@@ -7,7 +8,7 @@
       }
     }
 
-    > div:first-of-type {
+    > div.image__wrapper {
       padding: 15px;
       padding-right: 10px;
       width: 50%;
@@ -27,7 +28,7 @@
       }
     }
 
-    > div:last-of-type {
+    > div.content__wrapper {
       width: 50%;
       flex-direction: column;
       justify-content: flex-end;

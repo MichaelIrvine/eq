@@ -36,6 +36,7 @@ get_header();
         $featured_cs = get_field('featured_case_study');
         if ($featured_cs) : ?>
         <div class="featured-post__wrapper grid__wrapper">
+          <span></span>
           <div>
             <div class="featured-post-title__wrapper">
               <h4>Case Studies</h4>
@@ -59,6 +60,7 @@ get_header();
             </div>
           </div>
           <div>
+
             <div>
               <?php echo get_the_post_thumbnail($featured_cs, "full"); ?>
             </div>
@@ -66,6 +68,7 @@ get_header();
         </div>
         <?php endif; ?>
         <div class="featured-post-image__wrapper">
+          <span></span>
           <?php
           $featuredImage = get_field('featured_article_image');
           if (!empty($featuredImage)) : ?>
@@ -75,6 +78,7 @@ get_header();
           <?php endif; ?>
 
         </div>
+        <span></span>
       </div>
       <div id="front-page__col-02">
         <div id="section-about">

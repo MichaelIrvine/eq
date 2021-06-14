@@ -26,19 +26,34 @@ get_header();
       $aboutImage = get_sub_field('about_image');
       $preloadImage = $aboutImage['sizes']['preloadHalfHero'];
   ?>
-  <section id="about-heading" class="flex__wrapper">
-    <div class="staggered">
+  <section id="about-heading" class="about-content flex__wrapper">
+    <div class="staggered image__wrapper">
       <?php
           if (!empty($aboutImage)) : ?>
       <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($aboutImage['url']); ?>"
         class="lazy" alt="<?php echo esc_attr($aboutImage['alt']); ?>" />
       <?php endif; ?>
     </div>
-    <div class="flex__wrapper content-editor__reset staggered">
+    <div class="flex__wrapper content__wrapper content-editor__reset staggered">
       <h1><?php echo $aboutTitle; ?></h1>
       <div class="content-editor__reset">
         <?php echo $aboutContent; ?>
       </div>
+    </div>
+  </section>
+  <section id="about-info" class="about-content flex__wrapper">
+    <div class="flex__wrapper content__wrapper content-editor__reset staggered">
+      <h1><?php echo $aboutTitle; ?></h1>
+      <div class="content-editor__reset">
+        <?php echo $aboutContent; ?>
+      </div>
+    </div>
+    <div class="staggered image__wrapper">
+      <?php
+          if (!empty($aboutImage)) : ?>
+      <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($aboutImage['url']); ?>"
+        class="lazy" alt="<?php echo esc_attr($aboutImage['alt']); ?>" />
+      <?php endif; ?>
     </div>
   </section>
   <?php
@@ -51,7 +66,7 @@ get_header();
   $args = array(
     'post_type' => 'team',
     'posts_per_page' => -1,
-	'order' => 'DESC',
+    'order' => 'DESC',
   );
 
   $the_query = new WP_Query($args);

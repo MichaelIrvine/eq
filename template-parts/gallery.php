@@ -8,7 +8,7 @@ if ($images) : ?>
 <section class="post-section gallery__wrapper --full-bleed">
   <?php foreach ($images as $image) : ?>
 
-  <div class="gallery-item"><img src="<?php echo $image; ?>" /></div>
+  <div class="gallery-item"><img class="lightbox-image" src="<?php echo $image; ?>" /></div>
 
   <?php endforeach; ?>
 </section>
@@ -18,7 +18,7 @@ if ($images) : ?>
 <section class="post-section gallery__wrapper --two-col">
   <?php foreach ($images as $image) : ?>
 
-  <div class="gallery-item"><img src="<?php echo $image; ?>" /></div>
+  <div class="gallery-item"><img class="lightbox-image" src="<?php echo $image; ?>" /></div>
 
   <?php endforeach; ?>
 </section>
@@ -28,7 +28,7 @@ if ($images) : ?>
 <section class="post-section gallery__wrapper --multi-col">
   <?php foreach ($images as $image) : ?>
 
-  <div class="gallery-item"><img src="<?php echo $image; ?>" /></div>
+  <div class="gallery-item"><img class="lightbox-image" src="<?php echo $image; ?>" /></div>
 
   <?php endforeach; ?>
 

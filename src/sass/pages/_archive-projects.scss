@@ -33,6 +33,10 @@
         border-right: 0;
       }
 
+      h3 {
+        transition: all 850ms ease;
+      }
+
       > div:first-of-type {
         overflow: hidden;
         object-fit: cover;
@@ -42,7 +46,7 @@
         max-height: 270px;
         object-fit: cover;
         width: 100%;
-        transition: transform 850ms ease;
+        transition: all 850ms ease;
       }
 
       > div:last-of-type {
@@ -119,4 +123,11 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.article__wrapper:hover h3 {
+  color: $eqBlue;
+}
+.article__wrapper:hover img {
+  opacity: 0.7;
 }
