@@ -87,6 +87,10 @@ get_header();
 
           get_template_part('template-parts/flexible', 'two-third-one-third-columns');
 
+        elseif (get_row_layout() == 'content_with_note') :
+
+          get_template_part('template-parts/flexible', 'content-note');
+
         endif;
 
       endwhile;

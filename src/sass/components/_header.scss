@@ -5,7 +5,7 @@ header#site-header {
   right: 0;
   display: flex;
   height: 70px;
-  padding: 0 15px;
+  // padding: 0 15px;
   background-color: $eqWhite;
   border-bottom: 1px solid $eqLightGrey;
   transition: all 500ms ease;
@@ -16,6 +16,7 @@ header#site-header {
     flex: 0.5;
     align-items: flex-end;
     padding-bottom: 7px;
+    padding-left: 15px;
 
     #mainBranding {
       @media (max-width: 500px) {

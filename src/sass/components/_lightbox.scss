@@ -13,13 +13,22 @@
 }
 
 #lightbox.active {
+  padding: 30px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#lightbox .close__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #lightbox img {
   width: auto;
   max-width: 50%;
   max-height: 90vh;
+  margin: auto 0;
 }

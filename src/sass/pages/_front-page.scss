@@ -255,9 +255,11 @@
 
   #front-page__col-02 {
     flex: 1;
-    padding: 0 15px;
+    // padding: 0 15px;
     margin-top: 0 !important;
     transform: translateY(60vh);
+
+    position: relative;
 
     @media (max-width: 1200px) {
       transform: translateY(0vh);
@@ -271,11 +273,13 @@
       border-bottom: 1px solid $eqLightGrey;
       min-height: 60vh;
       margin-bottom: 15px;
+      padding: 0 15px;
       padding-bottom: 2.5rem;
     }
     > div:last-of-type {
       border-bottom: 1px solid $eqLightGrey;
       min-height: 60vh;
+      padding: 0 15px;
     }
 
     .section-title__wrapper {
@@ -318,6 +322,13 @@
       #section-news {
         min-height: 0px !important;
       }
+    }
+
+    #columnLogo {
+      position: absolute;
+      top: -60vh;
+      left: 0;
+      margin: 1rem;
     }
   }
 }

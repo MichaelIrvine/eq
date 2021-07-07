@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: {
               trigger: '.featured-post__wrapper',
               start: 'bottom bottom',
-              scrub: 1,
+              scrub: 0,
               pin: '.site-main',
               ease: 'none',
               pinSpacing: false,
@@ -23,33 +23,42 @@ window.addEventListener('DOMContentLoaded', () => {
               markers: false,
             },
           })
+          .to('#columnLogo', {
+            opacity: 0,
+            ease: 'none',
+            duration: 10,
+          })
           .to('#front-page__col-02', {
             y: '2vh',
             ease: 'none',
+            duration: 10,
           })
           .to('#front-page__col-01', {
+            duration: 7,
             y: () => {
               return `-${
-                document.querySelector('.featured-post__wrapper').clientHeight -
+                document.querySelector('.featured-post__wrapper').offsetHeight -
                 10
               }px`;
             },
             ease: 'none',
           })
           .to('#front-page-content__wrapper', {
+            duration: 7,
             y: () => {
               return `-${
                 window.innerHeight -
-                document.querySelector('.featured-post__wrapper').clientHeight -
-                70
+                document.querySelector('.featured-post__wrapper').offsetHeight -
+                40
               }`;
             },
             ease: 'none',
           })
           .to('#front-page__col-02', {
+            duration: 10,
             y: () => {
               return `-${
-                document.querySelector('#section-about').clientHeight - 10
+                document.querySelector('#section-about').offsetHeight
               }px`;
             },
             ease: 'none',

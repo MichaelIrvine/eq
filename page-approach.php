@@ -26,7 +26,7 @@ get_header();
       $apImage = get_sub_field('approach_image');
       $preloadImage = $apImage['sizes']['preloadHalfHero'];
   ?>
-  <section id="approach-heading" class="flex__wrapper">
+  <section id="approach-heading" class="flex__wrapper approach_two_cols">
     <div class="flex__wrapper staggered">
       <div class="content__wrapper">
         <?php echo $apContent; ?>
@@ -44,8 +44,71 @@ get_header();
     endwhile;
   endif;
   ?>
+  <!-- Approach Info Section 1 -->
+  <?php
+  if (have_rows('approach_info')) :
+    while (have_rows('approach_info')) : the_row();
+
+      $apContent = get_sub_field('approach_text');
+      $apImage = get_sub_field('approach_image');
+      $preloadImage = $apImage['sizes']['preloadHalfHero'];
+  ?>
+  <section id="approach-info-1" class="flex__wrapper approach_two_cols">
+    <div class="staggered">
+      <?php
+          if (!empty($apImage)) : ?>
+      <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($apImage['url']); ?>" class="lazy"
+        alt="<?php echo esc_attr($apImage['alt']); ?>" />
+      <?php endif; ?>
+    </div>
+    <div class="flex__wrapper staggered">
+      <div class="content__wrapper">
+        <?php echo $apContent; ?>
+      </div>
+    </div>
+  </section>
+  <?php
+    endwhile;
+  endif;
+  ?>
+
+  <!-- Approach info section 2 -->
+
+  <?php
+  if (have_rows('approach_info_2')) :
+    while (have_rows('approach_info_2')) : the_row();
+
+      $apContent = get_sub_field('approach_text');
+      $apImage = get_sub_field('approach_image');
+      $preloadImage = $apImage['sizes']['preloadHalfHero'];
+  ?>
+  <section id="approach-info-2" class="flex__wrapper approach_two_cols">
+    <div class="flex__wrapper staggered">
+      <div class="content__wrapper">
+        <?php echo $apContent; ?>
+      </div>
+    </div>
+    <div class="staggered">
+      <?php
+          if (!empty($apImage)) : ?>
+      <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($apImage['url']); ?>" class="lazy"
+        alt="<?php echo esc_attr($apImage['alt']); ?>" />
+      <?php endif; ?>
+    </div>
+  </section>
+  <?php
+    endwhile;
+  endif;
+  ?>
+
+
+  <div class="section-toggle__wrapper">
+    <h4 class="section-toggle">View History</h4>
+  </div>
+
+
   <!-- Timeline Section -->
-  <section id="approach-timeline">
+  <section id="approach-timeline" class="anchor">
     <div id="timeline__title-row" class="timeline__row grid__wrapper">
       <div>
         <h4>History</h4>

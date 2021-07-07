@@ -1,14 +1,23 @@
 const dropDownNav = () => {
-  const navEl = document.querySelector('.menu-item:last-of-type');
-  const subNavEl = document.querySelector('.sub-menu .menu-item');
+  const subMenuItems = document.querySelectorAll('ul.sub-menu');
 
-  const updateSubNavWidth = () => {
-    let navElWidth = navEl.clientWidth;
-    subNavEl.style.width = `${navElWidth}px`;
-  };
+  function handleMenuPos() {
+    const mediaQueryTablet = window.matchMedia('(min-width: 768px)');
 
-  window.addEventListener('DOMContentLoaded', updateSubNavWidth);
-  window.addEventListener('resize', updateSubNavWidth);
+    if (mediaQueryTablet.matches) {
+      console.log('we going');
+      subMenuItems.forEach((item) => {
+        const itemParent = item.parentNode;
+
+        // set ul.sub-menus padding-left value to the parent offsetLeft
+        // Minus 1px to help with alignment
+        item.style.paddingLeft = `${itemParent.offsetLeft - 1}px`;
+      });
+    }
+  }
+
+  handleMenuPos();
+  window.addEventListener('resize', handleMenuPos);
 };
 
 export default dropDownNav;

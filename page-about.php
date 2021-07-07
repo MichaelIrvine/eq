@@ -17,6 +17,7 @@ get_header();
 ?>
 
 <main class="page__about site-main">
+
   <?php
   if (have_rows('about_heading')) :
     while (have_rows('about_heading')) : the_row();
@@ -35,17 +36,35 @@ get_header();
       <?php endif; ?>
     </div>
     <div class="flex__wrapper content__wrapper content-editor__reset staggered">
-      <h1><?php echo $aboutTitle; ?></h1>
-      <div class="content-editor__reset">
-        <?php echo $aboutContent; ?>
+      <div class="inner__wrapper">
+        <h1><?php echo $aboutTitle; ?></h1>
+        <div class="content-editor__reset">
+          <?php echo $aboutContent; ?>
+        </div>
       </div>
     </div>
   </section>
+  <?php
+    endwhile;
+  endif;
+  ?>
+  <?php
+  if (have_rows('about_info')) :
+    while (have_rows('about_info')) : the_row();
+
+      $aboutTitle = get_sub_field('about_info_title');
+      $aboutContent = get_sub_field('about_info_text');
+      $aboutImage = get_sub_field('about_info_image');
+      $preloadImage = $aboutImage['sizes']['preloadHalfHero'];
+
+  ?>
   <section id="about-info" class="about-content flex__wrapper">
     <div class="flex__wrapper content__wrapper content-editor__reset staggered">
-      <h1><?php echo $aboutTitle; ?></h1>
-      <div class="content-editor__reset">
-        <?php echo $aboutContent; ?>
+      <div class="inner__wrapper">
+        <h1><?php echo $aboutTitle; ?></h1>
+        <div class="content-editor__reset">
+          <?php echo $aboutContent; ?>
+        </div>
       </div>
     </div>
     <div class="staggered image__wrapper">
@@ -54,6 +73,37 @@ get_header();
       <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($aboutImage['url']); ?>"
         class="lazy" alt="<?php echo esc_attr($aboutImage['alt']); ?>" />
       <?php endif; ?>
+    </div>
+  </section>
+  <?php
+    endwhile;
+  endif;
+  ?>
+  <!-- About Info Row 2 -->
+  <?php
+  if (have_rows('about_info_second_row')) :
+    while (have_rows('about_info_second_row')) : the_row();
+
+      $aboutTitle = get_sub_field('about_info_title');
+      $aboutContent = get_sub_field('about_info_text');
+      $aboutImage = get_sub_field('about_info_image');
+      $preloadImage = $aboutImage['sizes']['preloadHalfHero'];
+  ?>
+  <section id="about-info-2" class="about-content flex__wrapper">
+    <div class="staggered image__wrapper">
+      <?php
+          if (!empty($aboutImage)) : ?>
+      <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($aboutImage['url']); ?>"
+        class="lazy" alt="<?php echo esc_attr($aboutImage['alt']); ?>" />
+      <?php endif; ?>
+    </div>
+    <div class="flex__wrapper content__wrapper content-editor__reset staggered">
+      <div class="inner__wrapper">
+        <h1><?php echo $aboutTitle; ?></h1>
+        <div class="content-editor__reset">
+          <?php echo $aboutContent; ?>
+        </div>
+      </div>
     </div>
   </section>
   <?php
@@ -76,7 +126,7 @@ get_header();
     <h4>Team Composition</h4>
   </div>
 
-  <section id="eq-team" class="grid__wrapper">
+  <section id="eq-team" class="grid__wrapper anchor">
     <?php
       while ($the_query->have_posts()) : $the_query->the_post();
         $teamMember = get_field('team_member');
@@ -143,8 +193,68 @@ get_header();
     <?php
       endwhile;
     endif;
+
+    wp_reset_postdata();
     ?>
   </section>
+
+
+  <!-- Contact -->
+  <section id="contactDetails" class="flex__wrapper anchor">
+
+    <?php
+      $contactDetails = get_field('about_contact_details');
+      if ($contactDetails) : ?>
+    <div>
+      <h4><?php echo $contactDetails['about_contact_detail_title']; ?> </h4>
+      <?php echo $contactDetails['about_contact_details']; ?>
+    </div>
+    <?php endif; ?>
+
+    <div>
+      <?php
+        $careersDetails = get_field('about_career_details');
+        if ($contactDetails) : ?>
+
+      <h4><?php echo $careersDetails['about_careers_title']; ?> </h4>
+      <?php echo $careersDetails['about_careers_text']; ?>
+
+      <?php endif; ?>
+
+      <?php
+        $jobPosts = get_field('about_job_postings');
+
+        if ($jobPosts) : ?>
+
+      <p>Current Openings:</p>
+      <ul>
+        <?php
+            foreach ($jobPosts as $jobPost) :  ?>
+        <li>
+          <p><?php echo $jobPost['job_posting_title']; ?></p>
+          <a href="<?php echo esc_url($jobPost['job_posting_link']); ?>">Learn More</a>
+        </li>
+        <?php endforeach; ?>
+      </ul>
+      <?php endif; ?>
+    </div>
+
+    <div>
+      <?php echo the_field('about_contact_page_form'); ?>
+    </div>
+  </section>
+  <section id="contactImage">
+    <div>
+      <?php
+        $image = get_field('about_contact_image');
+        $size = 'full';
+        if ($image) {
+          echo wp_get_attachment_image($image, $size);
+        } ?>
+    </div>
+  </section>
+
+
 </main>
 
 <?php

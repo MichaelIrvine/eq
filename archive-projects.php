@@ -68,6 +68,20 @@ get_header();
     $args = array(
       'post_type' => 'projects',
       'posts_per_page' => -1,
+      'post_status' => 'publish',
+      'order' => 'DSC',
+      'meta_query' => array(
+        'relation' => 'OR',
+        array(
+          'key'     => 'excluded_project',
+          'value'   => '0',
+          'compare' => '=',
+        ),
+        array(
+          'key'     => 'excluded_project',
+          'compare' => 'NOT EXISTS',
+        )
+      )
     );
 
     $the_query = new WP_Query($args);

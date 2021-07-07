@@ -15,17 +15,28 @@ const lightbox = () => {
     image.addEventListener('click', (e) => {
       document.body.style.overflow = 'hidden';
       lightbox.classList.add('active');
+
       const img = document.createElement('img');
       img.src = image.src;
-      while (lightbox.firstChild) {
-        lightbox.removeChild(lightbox.firstChild);
+
+      while (lightbox.lastChild) {
+        lightbox.removeChild(lightbox.lastChild);
       }
+      const closeBtn = `
+      <div class="close__wrapper">
+        <button class="panel-close">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    `;
+
+      lightbox.innerHTML = closeBtn;
       lightbox.appendChild(img);
     });
   });
 
   lightbox.addEventListener('click', (e) => {
-    if (e.target !== e.currentTarget) return;
     lightbox.classList.remove('active');
     document.body.style.overflow = 'auto';
   });

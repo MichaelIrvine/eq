@@ -31,7 +31,6 @@
     > div.content__wrapper {
       width: 50%;
       flex-direction: column;
-      justify-content: flex-end;
       padding: 15px 15px 20px 10px;
       padding-bottom: 20px;
 
@@ -44,7 +43,13 @@
         padding: 15px;
       }
 
-      div {
+      .inner__wrapper {
+        position: sticky;
+        top: 85px;
+        align-self: flex-start;
+      }
+
+      .content-editor__reset {
         column-count: 2;
 
         @media (max-width: 920px) {
@@ -71,7 +76,7 @@
 
   #eq-team {
     grid-template-columns: repeat(4, 1fr);
-    margin: 0 15px 2.5rem 15px;
+    margin: 0 15px 15px;
 
     @media (max-width: 1020px) {
       grid-template-columns: repeat(3, 1fr);
@@ -272,4 +277,20 @@
 
 .team-bio__wrapper.open {
   left: 0;
+}
+
+// *****************************************************************
+// *****************************************************************
+// ******************   About Page Contact *************************
+// *****************************************************************
+// *****************************************************************
+// Most styles are in the page-contact.scss file
+
+.page-about #contactDetails {
+  border-top: 1px solid $eqLightGrey;
+  margin-bottom: 15px;
+
+  > div {
+    padding-top: 15px;
+  }
 }
