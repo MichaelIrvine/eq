@@ -238,6 +238,8 @@ add_action('wp_enqueue_scripts', 'eq_scripts');
 
 
 
+
+
 /**
  * Custom Function for Excerpt Size
  */
@@ -354,3 +356,16 @@ function iframe_embed_html($html)
 }
 add_filter('embed_oembed_html', 'iframe_embed_html', 10, 3);
 add_filter('video_embed_html', 'iframe_embed_html'); // Jetpack
+
+add_filter('body_class', 'my_body_classes');
+function my_body_classes($classes)
+{
+	// check if field from specific page is not active 
+	$approach_page = get_page_by_title('Approach');
+	$approach_page_id = $approach_page->ID;
+	$hide_history = get_field('display_history_section_toggle', $approach_page->ID);
+	if (!$hide_history) :
+		$classes[] = 'hide-history';
+	endif;
+	return $classes;
+}

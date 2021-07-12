@@ -26,15 +26,15 @@ window.addEventListener('DOMContentLoaded', () => {
           .to('#columnLogo', {
             opacity: 0,
             ease: 'none',
-            duration: 10,
+            duration: 20,
           })
           .to('#front-page__col-02', {
             y: '2vh',
             ease: 'none',
-            duration: 10,
+            duration: 30,
           })
           .to('#front-page__col-01', {
-            duration: 7,
+            duration: 15,
             y: () => {
               return `-${
                 document.querySelector('.featured-post__wrapper').offsetHeight -
@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
             ease: 'none',
           })
           .to('#front-page-content__wrapper', {
-            duration: 7,
+            duration: 15,
             y: () => {
               return `-${
                 window.innerHeight -
@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
             ease: 'none',
           })
           .to('#front-page__col-02', {
-            duration: 10,
+            duration: 20,
             y: () => {
               return `-${
                 document.querySelector('#section-about').offsetHeight

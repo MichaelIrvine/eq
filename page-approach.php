@@ -101,86 +101,85 @@ get_header();
   endif;
   ?>
 
+  <!-- ********************** -->
+  <!--   Timeline Row Layout  -->
+  <!-- ********************** -->
+  <div id="history" class="anchor"></div>
+  <?php
+  if (get_field('display_history_section_toggle')) : ?>
 
-  <div class="section-toggle__wrapper">
-    <h4 class="section-toggle">View History</h4>
-  </div>
+  <?php
+    // Keeping track of row index for alternating layouts
+    $rowCount = 0;
 
-
-  <!-- Timeline Section -->
-  <section id="approach-timeline" class="anchor">
-    <div id="timeline__title-row" class="timeline__row grid__wrapper">
+    if (have_rows('approach_timeline_row_layout')) : ?>
+  <!-- Timeline Row Layout Section Begin -->
+  <section id="timeline-row-layout">
+    <div class="timeline-title-row__wrapper">
       <div>
         <h4>History</h4>
       </div>
       <div></div>
-      <div></div>
-      <div></div>
     </div>
-
-    <!-- Flexible Content -->
-    <?php
-    if (have_rows('approach_timeline')) :
-      while (have_rows('approach_timeline')) : the_row();
-        if (get_row_layout() == 'timeline') :
-
-          $rows = get_sub_field('timeline_item'); ?>
-
-    <?php foreach ($rows as $key => $row) : ?>
-
-    <div class="timeline__row grid__wrapper">
-      <div>
-        <h4><?php echo $row['year']; ?></h4>
+    <?php while (have_rows('approach_timeline_row_layout')) : the_row();
+          $date = get_sub_field('timeline_date');
+          $timelineText = get_sub_field('timeline_text');
+          $timelineImage = get_sub_field('timeline_image');
+        ?>
+    <div class="timeline__wrapper">
+      <!-- Date Block -->
+      <div class="timeline-date__wrapper">
+        <h4><?php echo $date; ?></h4>
       </div>
-      <?php if ($key % 2 == 0) : ?>
-      <div>
-        <div class="content__wrapper">
-          <?php echo $row['content'] ?>
+
+      <!-- Check row index - alternate layout -->
+      <?php if ($rowCount % 2 === 0) : ?>
+
+      <div class="col__wrapper odd">
+        <div class="flex__wrapper">
+          <div><?php echo $timelineText; ?></div>
         </div>
-        <!-- Link - If exists -->
-        <?php if ($row['link']) : ?>
-        <a class="project-link" href="<?php echo esc_url($row['link']); ?>">See Project</a>
-        <?php endif; ?>
+        <div>
+          <div>
+            <?php if (!empty($timelineImage)) : ?>
+            <img src="<?php echo esc_url($timelineImage['url']); ?>"
+              alt="<?php echo esc_attr($timelineImage['alt']); ?>" />
+            <?php endif; ?>
+          </div>
+        </div>
       </div>
-      <div></div>
+
+
       <?php else : ?>
-      <div>
-        <div class="content__wrapper nth-even">
-          <?php echo $row['content'] ?>
+      <div class="col__wrapper even">
+        <div>
+          <div>
+            <?php if (!empty($timelineImage)) : ?>
+            <img src="<?php echo esc_url($timelineImage['url']); ?>"
+              alt="<?php echo esc_attr($timelineImage['alt']); ?>" />
+            <?php endif; ?>
+          </div>
+        </div>
+        <div class="flex__wrapper">
+          <div><?php echo $timelineText; ?></div>
         </div>
       </div>
-      <div>
-        <div class="content__wrapper">
-          <?php echo $row['content'] ?>
-        </div>
-        <!-- Link - If exists -->
-        <?php if ($row['link']) : ?>
-        <a class="project-link" href="<?php echo esc_url($row['link']); ?>">See Project</a>
-        <?php endif; ?>
-      </div>
-      <?php endif; ?>
-      <div>
-        <!-- Link - If exists -->
-        <?php if ($row['link']) : ?>
-        <a class="project-link" href="<?php echo esc_url($row['link']); ?>">See Project</a>
-        <?php endif; ?>
-      </div>
+      <?php endif;
+            $rowCount++; ?>
+      <!-- End of Timeline Row Main Wrapper -->
     </div>
-    <?php endforeach; ?>
-
     <?php
-        endif;
-      endwhile;
-    endif; ?>
-
+        // End loop.
+        endwhile; ?>
+    <!-- End Timeline Section -->
     <!-- Timeline Footer -->
-    <div class="timeline__footer-row timeline__row grid__wrapper">
-      <div></div>
-      <div></div>
+    <div class="timeline-row-layout__footer">
       <div></div>
       <div></div>
     </div>
   </section>
+  <?php endif; ?>
+  <?php endif; ?>
 
 </main>
 

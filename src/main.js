@@ -14,7 +14,6 @@ import navigation from './js/navigation';
 import flexibleColumns from './js/flexColumns';
 import staggerAnim from './js/staggerAnim';
 import lightbox from './js/lightbox';
-import toggleHistory from './js/toggleHistory';
 
 // Globals
 lazyLoad();
@@ -30,9 +29,6 @@ if (document.body.classList.contains('home')) {
 
 if (document.body.classList.contains('page-about')) {
   bioModal();
-}
-if (document.body.classList.contains('page-approach')) {
-  toggleHistory();
 }
 if (document.body.classList.contains('post-type-archive-projects')) {
   accordion();

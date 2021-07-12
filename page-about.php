@@ -88,11 +88,14 @@ get_header();
       $aboutContent = get_sub_field('about_info_text');
       $aboutImage = get_sub_field('about_info_image');
       $preloadImage = $aboutImage['sizes']['preloadHalfHero'];
+
+      if ($aboutContent) :
   ?>
+
   <section id="about-info-2" class="about-content flex__wrapper">
     <div class="staggered image__wrapper">
       <?php
-          if (!empty($aboutImage)) : ?>
+            if (!empty($aboutImage)) : ?>
       <img src="<?php echo esc_url($preloadImage); ?>" data-src="<?php echo esc_url($aboutImage['url']); ?>"
         class="lazy" alt="<?php echo esc_attr($aboutImage['alt']); ?>" />
       <?php endif; ?>
@@ -107,6 +110,7 @@ get_header();
     </div>
   </section>
   <?php
+      endif;
     endwhile;
   endif;
   ?>
@@ -232,29 +236,27 @@ get_header();
             foreach ($jobPosts as $jobPost) :  ?>
         <li>
           <p><?php echo $jobPost['job_posting_title']; ?></p>
+          <?php if ($jobPost['job_posting_link']) : ?>
           <a href="<?php echo esc_url($jobPost['job_posting_link']); ?>">Learn More</a>
+          <?php endif; ?>
         </li>
         <?php endforeach; ?>
       </ul>
       <?php endif; ?>
     </div>
 
-    <div>
-      <?php echo the_field('about_contact_page_form'); ?>
-    </div>
-  </section>
-  <section id="contactImage">
-    <div>
+    <div class="image__wrapper">
       <?php
-        $image = get_field('about_contact_image');
-        $size = 'full';
-        if ($image) {
-          echo wp_get_attachment_image($image, $size);
-        } ?>
+        $contactImage = get_field('about_contact_image');
+        $contactPreloadImage = $contactImage['sizes']['preloadHalfHero'];
+
+        if (!empty($contactImage)) : ?>
+      <img src="<?php echo esc_url($contactPreloadImage); ?>" data-src="<?php echo esc_url($contactImage['url']); ?>"
+        class="lazy" alt="<?php echo esc_attr($contactImage['alt']); ?>" />
+      <?php endif; ?>
     </div>
+
   </section>
-
-
 </main>
 
 <?php

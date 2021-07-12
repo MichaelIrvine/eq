@@ -704,7 +704,7 @@ h2 {
     @media (max-width: 1020px) {
       .page__about #eq-team .grid-item:nth-of-type(4n) {
         border-right-color: #d6d3d0;
-        padding-left: 0;
+        padding-left: 8px;
         padding-right: 8px; } }
     @media (max-width: 720px) {
       .page__about #eq-team .grid-item:nth-of-type(4n) {
@@ -717,6 +717,9 @@ h2 {
       border-right-color: transparent;
       margin-right: 0;
       padding-right: 0; } }
+  @media (max-width: 1020px) {
+    .page__about #eq-team .grid-item:nth-of-type(12n) {
+      border-right-color: transparent; } }
   @media (max-width: 1020px) {
     .page__about #eq-team .grid-item:last-of-type {
       padding-left: 8px; } }
@@ -782,9 +785,38 @@ h2 {
 
 .page-about #contactDetails {
   border-top: 1px solid #d6d3d0;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  margin-top: 15px;
+  padding: 0 15px; }
   .page-about #contactDetails > div {
+    margin-top: 15px;
     padding-top: 15px; }
+  .page-about #contactDetails > div:first-of-type {
+    padding-right: 15px;
+    padding-left: 0; }
+    @media (max-width: 540px) {
+      .page-about #contactDetails > div:first-of-type {
+        padding-top: 15px; } }
+  .page-about #contactDetails > div:nth-of-type(2) {
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media (max-width: 1040px) {
+      .page-about #contactDetails > div:nth-of-type(2) {
+        border-right-color: transparent;
+        padding-right: 0; } }
+    @media (max-width: 540px) {
+      .page-about #contactDetails > div:nth-of-type(2) {
+        padding: 15px 0; } }
+  .page-about #contactDetails > div:last-of-type {
+    margin-top: 0;
+    padding-top: 15px;
+    padding-right: 0; }
+    .page-about #contactDetails > div:last-of-type img {
+      height: 100%;
+      object-fit: cover; }
+    @media (max-width: 1040px) {
+      .page-about #contactDetails > div:last-of-type {
+        margin: 0; } }
 
 .page__approach .approach_two_cols {
   margin-bottom: 4.5rem; }
@@ -802,13 +834,14 @@ h2 {
     .page__approach #approach-heading {
       max-height: 100%; } }
   .page__approach #approach-heading > div {
-    flex: 1;
+    width: 50%;
     min-height: calc(100vh - 70px); }
     @media (max-width: 768px) {
       .page__approach #approach-heading > div {
-        min-height: auto; } }
+        min-height: auto;
+        width: 100%; } }
   .page__approach #approach-heading > div.flex__wrapper:first-of-type {
-    padding: 15px 15px 0px 15px; }
+    padding: 15px 10px 15px 15px; }
   .page__approach #approach-heading .content__wrapper:first-of-type {
     width: 60%; }
     .page__approach #approach-heading .content__wrapper:first-of-type h1,
@@ -826,7 +859,8 @@ h2 {
   .page__approach #approach-heading div img {
     height: 100%;
     object-fit: cover;
-    object-position: bottom; }
+    object-position: bottom;
+    padding: 15px 15px 15px 10px; }
     @media (max-width: 768px) {
       .page__approach #approach-heading div img {
         height: 80vh; } }
@@ -840,13 +874,14 @@ h2 {
     .page__approach #approach-info-1 {
       max-height: 100%; } }
   .page__approach #approach-info-1 > div {
-    flex: 1;
+    width: 50%;
     min-height: calc(100vh - 70px); }
     @media (max-width: 768px) {
       .page__approach #approach-info-1 > div {
-        min-height: auto; } }
+        min-height: auto;
+        width: 100%; } }
   .page__approach #approach-info-1 > div.flex__wrapper:last-of-type {
-    padding: 0px 15px 0px 30px; }
+    padding: 15px 15px 15px 10px; }
     @media (max-width: 768px) {
       .page__approach #approach-info-1 > div.flex__wrapper:last-of-type {
         padding: 15px 15px 0px 15px; } }
@@ -867,7 +902,8 @@ h2 {
   .page__approach #approach-info-1 div img {
     height: 100%;
     object-fit: cover;
-    object-position: bottom; }
+    object-position: bottom;
+    padding: 15px 10px 15px 15px; }
     @media (max-width: 768px) {
       .page__approach #approach-info-1 div img {
         height: 80vh; } }
@@ -882,16 +918,17 @@ h2 {
     .page__approach #approach-info-2 {
       max-height: 100%; } }
   .page__approach #approach-info-2 > div {
-    flex: 1;
+    width: 50%;
     min-height: calc(100vh - 70px); }
     @media (max-width: 768px) {
       .page__approach #approach-info-2 > div {
-        min-height: auto; } }
+        min-height: auto;
+        width: 100%; } }
   .page__approach #approach-info-2 > div.flex__wrapper:first-of-type {
-    padding: 0px 15px 0px 15px; }
+    padding: 15px; }
     @media (max-width: 768px) {
       .page__approach #approach-info-2 > div.flex__wrapper:first-of-type {
-        padding: 15px 15px 0px 15px; } }
+        padding: 15px 10px 15px 15px; } }
   .page__approach #approach-info-2 .content__wrapper:first-of-type {
     width: 60%; }
     .page__approach #approach-info-2 .content__wrapper:first-of-type h1,
@@ -909,7 +946,8 @@ h2 {
   .page__approach #approach-info-2 div img {
     height: 100%;
     object-fit: cover;
-    object-position: bottom; }
+    object-position: bottom;
+    padding: 15px 15px 15px 10px; }
     @media (max-width: 768px) {
       .page__approach #approach-info-2 div img {
         height: 80vh; } }
@@ -929,8 +967,6 @@ h2 {
       color: #8f8e8b; }
 
 .page__approach #approach-timeline {
-  overflow: hidden;
-  transition: all 650ms ease;
   border-top: 1px solid #d6d3d0; }
   .page__approach #approach-timeline .timeline__row {
     grid-template-columns: 0.25fr 0.75fr 0.65fr 0.35fr; }
@@ -1016,6 +1052,104 @@ h2 {
 .project-link {
   display: block;
   line-height: 1.25; }
+
+#timeline-row-layout {
+  border-top: 1px solid #d6d3d0; }
+  #timeline-row-layout h1,
+  #timeline-row-layout h2,
+  #timeline-row-layout h3,
+  #timeline-row-layout h4 {
+    font-family: 'MaisonNeue', sans-serif;
+    line-height: 1.5;
+    margin-bottom: 1rem; }
+  #timeline-row-layout p {
+    margin-bottom: 1rem;
+    color: #8f8e8b; }
+  #timeline-row-layout strong {
+    color: #191a17; }
+  #timeline-row-layout a {
+    color: #3658a8; }
+    #timeline-row-layout a:hover {
+      color: #8f8e8b; }
+  #timeline-row-layout .timeline-title-row__wrapper {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    min-height: 10vh; }
+    #timeline-row-layout .timeline-title-row__wrapper > div:first-of-type {
+      border-color: #e1e1e1;
+      background-color: #e1e1e1;
+      padding: 15px; }
+      @media (max-width: 580px) {
+        #timeline-row-layout .timeline-title-row__wrapper > div:first-of-type {
+          background-color: #f0f0f0; } }
+    @media (max-width: 420px) {
+      #timeline-row-layout .timeline-title-row__wrapper {
+        min-height: auto;
+        grid-template-columns: 1fr 1fr; } }
+  #timeline-row-layout .timeline__wrapper {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    border-top: 1px solid #d6d3d0; }
+    @media (max-width: 420px) {
+      #timeline-row-layout .timeline__wrapper {
+        grid-template-columns: 1fr; } }
+    #timeline-row-layout .timeline__wrapper .timeline-date__wrapper {
+      border-color: #e1e1e1;
+      background-color: #e1e1e1;
+      padding: 30px 15px; }
+      #timeline-row-layout .timeline__wrapper .timeline-date__wrapper h4 {
+        padding-top: 3px; }
+        @media (max-width: 860px) {
+          #timeline-row-layout .timeline__wrapper .timeline-date__wrapper h4 {
+            padding-top: 0; } }
+      @media (max-width: 580px) {
+        #timeline-row-layout .timeline__wrapper .timeline-date__wrapper {
+          background-color: #f0f0f0; } }
+      @media (max-width: 420px) {
+        #timeline-row-layout .timeline__wrapper .timeline-date__wrapper {
+          padding-bottom: 0; } }
+    #timeline-row-layout .timeline__wrapper .col__wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr; }
+      @media (max-width: 860px) {
+        #timeline-row-layout .timeline__wrapper .col__wrapper {
+          display: flex;
+          flex-direction: column;
+          padding: 30px 15px 30px 15px; } }
+      @media (max-width: 420px) {
+        #timeline-row-layout .timeline__wrapper .col__wrapper {
+          padding-top: 0px; } }
+      #timeline-row-layout .timeline__wrapper .col__wrapper > div {
+        padding: 30px 15px 30px 30px;
+        min-height: 30vh; }
+        @media (max-width: 860px) {
+          #timeline-row-layout .timeline__wrapper .col__wrapper > div {
+            min-height: auto;
+            padding: 0; } }
+      #timeline-row-layout .timeline__wrapper .col__wrapper .flex__wrapper {
+        justify-content: flex-start; }
+        #timeline-row-layout .timeline__wrapper .col__wrapper .flex__wrapper div {
+          width: 80%; }
+          @media (max-width: 860px) {
+            #timeline-row-layout .timeline__wrapper .col__wrapper .flex__wrapper div {
+              width: 100%;
+              margin-bottom: 30px; } }
+  #timeline-row-layout .timeline-row-layout__footer {
+    display: grid;
+    grid-template-columns: 10% 90%; }
+    #timeline-row-layout .timeline-row-layout__footer div {
+      min-height: 10vh; }
+    #timeline-row-layout .timeline-row-layout__footer > div:first-of-type {
+      border-color: #e1e1e1;
+      background-color: #e1e1e1;
+      padding: 15px; }
+      @media (max-width: 580px) {
+        #timeline-row-layout .timeline-row-layout__footer > div:first-of-type {
+          background-color: #f0f0f0; } }
+
+@media (max-width: 860px) {
+  #timeline-row-layout .col__wrapper.even {
+    flex-direction: column-reverse; } }
 
 section#contactDetails {
   margin-bottom: 4px; }
@@ -1336,8 +1470,6 @@ section#contactImage {
       .archive-page__projects .filtered-articles .article__wrapper:nth-of-type(3) span {
         display: block; } }
   .archive-page__projects .filtered-articles .article__wrapper:last-of-type {
-    margin-right: 0;
-    padding-right: 0;
     border-right: 1px solid transparent; }
 
 @keyframes fadeIn {
@@ -1769,7 +1901,7 @@ header#site-header {
   z-index: 998; }
   header#site-header #site-branding {
     display: flex;
-    flex: 0.5;
+    width: 33.25%;
     align-items: flex-end;
     padding-bottom: 7px;
     padding-left: 15px; }
@@ -1976,6 +2108,9 @@ header#site-header.is-scrolled #site-branding #headerBrandingMobile {
 
 #site-navigation .menu-main-container .menu .menu-item.current-menu-item a {
   color: #3658a8; }
+
+body.hide-history #menu-item-19 .sub-menu {
+  display: none; }
 
 .hero--full {
   min-height: 100vh; }

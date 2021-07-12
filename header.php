@@ -35,6 +35,7 @@
 
 <body <?php body_class('transparent-header js-loading'); ?>>
   <?php wp_body_open(); ?>
+
   <div id="page" class="site">
     <header id="site-header">
       <div id="site-branding">

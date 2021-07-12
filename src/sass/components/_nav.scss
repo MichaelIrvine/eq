@@ -243,3 +243,7 @@
 #site-navigation .menu-main-container .menu .menu-item.current-menu-item a {
   color: $eqBlue;
 }
+
+body.hide-history #menu-item-19 .sub-menu {
+  display: none;
+}
